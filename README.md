@@ -1,4 +1,6 @@
 # FrontEnd
-To fetch dependencies : npm instal
+To fetch dependencies : npm install
+
 run server : ./bin/www
+
 Login Page found on localhost:3000
