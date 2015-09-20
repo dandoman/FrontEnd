@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to #{title}
+	form
+		p Email:&nbsp
+			input#email(type="text", name="email")
+		p Password:&nbsp
+			input#password(type="password", name="password")
+		button#loginButton(type="submit")
+			| Login
+	script(src='/javascripts/index/loginButton.js')
