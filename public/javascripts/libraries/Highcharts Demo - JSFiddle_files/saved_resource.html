@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://fiddle.jshell.net/_display/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Highcharts Demo - jsFiddle demo</title>
+  
+  <script type="text/javascript" src="jquery-1.9.1.js"></script>
+  
+  
+  
+  
+  <link rel="stylesheet" type="text/css" href="result-light.css">
+  
+  <style type="text/css">
+    
+  </style>
+  
+
+
+<script type="text/javascript">//<![CDATA[ 
+
+$(function () {
+
+    $('#container').highcharts({
+        
+        data: {
+            csv: document.getElementById('csv').innerHTML
+        },
+
+        chart: {
+            type: 'heatmap',
+            inverted: true
+        },
+
+
+        title: {
+            text: 'Highcharts heat map study',
+            align: 'left'
+        },
+
+        subtitle: {
+            text: 'Temperature variation by day and hour through April 2013',
+            align: 'left'
+        },
+
+        xAxis: {
+            tickPixelInterval: 50,
+            min: Date.UTC(2013, 3, 1),
+            max: Date.UTC(2013, 3, 30),
+             plotLines: [{
+                value: 9,
+                color: '#FF0000',
+                width: 2,
+                zIndex: 10
+            }]
+        },
+
+        yAxis: {
+            title: {
+                text: null
+            },
+            labels: {
+                format: '{value}:00'
+            },
+            plotLines: [{
+                value: 9,
+                color: '#FF0000',
+                width: 2,
+                zIndex: 10
+            }],
+            minPadding: 0,
+            maxPadding: 0,
+            startOnTick: false,
+            endOnTick: false,
+            tickPositions: [0, 6, 12, 18, 24],
+            tickWidth: 1,
+            min: 0,
+            max: 23
+        },
+
+        colorAxis: {
+            stops: [
+                [0, '#3060cf'],
+                [0.5, '#fffbbc'],
+                [0.9, '#c4463a']
+            ],
+            min: -5
+        },
+
+        series: [{
+            borderWidth: 0,
+            colsize: 24 * 36e5, // one day
+            tooltip: {
+                headerFormat: 'Temperature<br/>',
+                pointFormat: '{point.x:%e %b, %Y} {point.y}:00: <b>{point.value} ℃</b>'
+            }
+        }]
+
+    });
+});
+//]]>  
+
+</script>
+
+
+<style type="text/css"></style></head>
+<body>
+  <script src="highcharts.js"></script>
+<script src="map.js"></script>
+<script src="data.js"></script>
+
+
+<div id="container" style="height: 400px; max-width: 400px; margin: 0 auto" data-highcharts-chart="0"><div class="highcharts-container" id="highcharts-0" style="position: relative; overflow: hidden; width: 400px; height: 400px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="400" height="400"><desc>Created with Highcharts 4.1.7</desc><defs><lineargradient x1="0" y1="0" x2="1" y2="0" id="highcharts-1"><stop offset="0" stop-color="#3060cf" stop-opacity="1"></stop><stop offset="0.5" stop-color="#fffbbc" stop-opacity="1"></stop><stop offset="0.9" stop-color="#c4463a" stop-opacity="1"></stop></lineargradient><clippath id="highcharts-2"><rect x="0" y="0" width="247" height="330"></rect></clippath></defs><rect x="0" y="0" width="400" height="400" strokeWidth="0" fill="#FFFFFF" class=" highcharts-background"></rect><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path fill="none" d="M 66.5 59 L 66.5 306" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 148.5 59 L 148.5 306" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 231.5 59 L 231.5 306" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 313.5 59 L 313.5 306" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><g class="highcharts-axis" zIndex="2"><path fill="none" d="M 60 63.5 L 50 63.5" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 60 121.5 L 50 121.5" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 60 178.5 L 50 178.5" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 60 236.5 L 50 236.5" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 60 294.5 L 50 294.5" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 59.5 59 L 59.5 306" stroke="#C0D0E0" stroke-width="1" zIndex="7" visibility="visible"></path></g><g class="highcharts-axis" zIndex="2"><path fill="none" d="M 66.5 306 L 66.5 316" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 148.5 306 L 148.5 316" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 231.5 306 L 231.5 316" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 313.5 306 L 313.5 316" stroke="#C0D0E0" stroke-width="1" opacity="1"></path></g><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(390,306) rotate(90) scale(-1,1) scale(1 1)" style="" width="330" height="247" clip-path="url(#highcharts-2)"><rect x="239" y="316" width="8" height="14" fill="rgb(137,163,199)"></rect><rect x="231" y="316" width="8" height="14" fill="rgb(81,121,204)"></rect><rect x="222" y="316" width="9" height="14" fill="rgb(129,156,200)"></rect><rect x="214" y="316" width="8" height="14" fill="rgb(149,172,198)"></rect><rect x="206" y="316" width="8" height="14" fill="rgb(110,143,201)"></rect><rect x="198" y="316" width="8" height="14" fill="rgb(205,214,193)"></rect><rect x="189" y="316" width="9" height="14" fill="rgb(191,203,194)"></rect><rect x="181" y="316" width="8" height="14" fill="rgb(106,139,202)"></rect><rect x="173" y="316" width="8" height="14" fill="rgb(85,124,204)"></rect><rect x="165" y="316" width="8" height="14" fill="rgb(79,119,204)"></rect><rect x="156" y="316" width="9" height="14" fill="rgb(114,146,201)"></rect><rect x="148" y="316" width="8" height="14" fill="rgb(185,198,194)"></rect><rect x="140" y="316" width="8" height="14" fill="rgb(187,200,194)"></rect><rect x="132" y="316" width="8" height="14" fill="rgb(178,194,195)"></rect><rect x="124" y="316" width="8" height="14" fill="rgb(212,120,94)"></rect><rect x="115" y="316" width="9" height="14" fill="rgb(228,170,130)"></rect><rect x="107" y="316" width="8" height="14" fill="rgb(240,206,156)"></rect><rect x="99" y="316" width="8" height="14" fill="rgb(236,237,190)"></rect><rect x="91" y="316" width="8" height="14" fill="rgb(251,248,188)"></rect><rect x="82" y="316" width="9" height="14" fill="rgb(224,228,191)"></rect><rect x="74" y="316" width="8" height="14" fill="rgb(234,236,190)"></rect><rect x="66" y="316" width="8" height="14" fill="rgb(237,194,147)"></rect><rect x="58" y="316" width="8" height="14" fill="rgb(248,228,172)"></rect><rect x="49" y="316" width="9" height="14" fill="rgb(243,242,189)"></rect><rect x="41" y="316" width="8" height="14" fill="rgb(241,240,189)"></rect><rect x="33" y="316" width="8" height="14" fill="rgb(214,220,192)"></rect><rect x="25" y="316" width="8" height="14" fill="rgb(178,194,195)"></rect><rect x="16" y="316" width="9" height="14" fill="rgb(209,217,192)"></rect><rect x="8" y="316" width="8" height="14" fill="rgb(224,228,191)"></rect><rect x="0" y="316" width="8" height="14" fill="rgb(226,229,191)"></rect><rect x="239" y="303" width="8" height="13" fill="rgb(137,163,199)"></rect><rect x="231" y="303" width="8" height="13" fill="rgb(81,121,204)"></rect><rect x="222" y="303" width="9" height="13" fill="rgb(120,150,200)"></rect><rect x="214" y="303" width="8" height="13" fill="rgb(137,163,199)"></rect><rect x="206" y="303" width="8" height="13" fill="rgb(89,127,203)"></rect><rect x="198" y="303" width="8" height="13" fill="rgb(197,208,193)"></rect><rect x="189" y="303" width="9" height="13" fill="rgb(156,177,197)"></rect><rect x="181" y="303" width="8" height="13" fill="rgb(104,138,202)"></rect><rect x="173" y="303" width="8" height="13" fill="rgb(77,118,204)"></rect><rect x="165" y="303" width="8" height="13" fill="rgb(65,108,205)"></rect><rect x="156" y="303" width="9" height="13" fill="rgb(118,149,201)"></rect><rect x="148" y="303" width="8" height="13" fill="rgb(176,192,195)"></rect><rect x="140" y="303" width="8" height="13" fill="rgb(191,203,194)"></rect><rect x="132" y="303" width="8" height="13" fill="rgb(154,175,197)"></rect><rect x="124" y="303" width="8" height="13" fill="rgb(222,149,115)"></rect><rect x="115" y="303" width="9" height="13" fill="rgb(226,163,125)"></rect><rect x="107" y="303" width="8" height="13" fill="rgb(237,194,147)"></rect><rect x="99" y="303" width="8" height="13" fill="rgb(236,237,190)"></rect><rect x="91" y="303" width="8" height="13" fill="rgb(249,246,189)"></rect><rect x="82" y="303" width="9" height="13" fill="rgb(212,218,192)"></rect><rect x="74" y="303" width="8" height="13" fill="rgb(232,234,190)"></rect><rect x="66" y="303" width="8" height="13" fill="rgb(237,194,147)"></rect><rect x="58" y="303" width="8" height="13" fill="rgb(248,231,173)"></rect><rect x="49" y="303" width="9" height="13" fill="rgb(253,249,188)"></rect><rect x="41" y="303" width="8" height="13" fill="rgb(234,236,190)"></rect><rect x="33" y="303" width="8" height="13" fill="rgb(207,215,192)"></rect><rect x="25" y="303" width="8" height="13" fill="rgb(172,189,196)"></rect><rect x="16" y="303" width="9" height="13" fill="rgb(201,211,193)"></rect><rect x="8" y="303" width="8" height="13" fill="rgb(218,223,191)"></rect><rect x="0" y="303" width="8" height="13" fill="rgb(236,237,190)"></rect><rect x="239" y="289" width="8" height="14" fill="rgb(133,160,199)"></rect><rect x="231" y="289" width="8" height="14" fill="rgb(75,116,205)"></rect><rect x="222" y="289" width="9" height="14" fill="rgb(116,147,201)"></rect><rect x="214" y="289" width="8" height="14" fill="rgb(129,156,200)"></rect><rect x="206" y="289" width="8" height="14" fill="rgb(85,124,204)"></rect><rect x="198" y="289" width="8" height="14" fill="rgb(193,205,194)"></rect><rect x="189" y="289" width="9" height="14" fill="rgb(118,149,201)"></rect><rect x="181" y="289" width="8" height="14" fill="rgb(87,125,203)"></rect><rect x="173" y="289" width="8" height="14" fill="rgb(77,118,204)"></rect><rect x="165" y="289" width="8" height="14" fill="rgb(71,113,205)"></rect><rect x="156" y="289" width="9" height="14" fill="rgb(98,133,202)"></rect><rect x="148" y="289" width="8" height="14" fill="rgb(170,187,196)"></rect><rect x="140" y="289" width="8" height="14" fill="rgb(176,192,195)"></rect><rect x="132" y="289" width="8" height="14" fill="rgb(147,170,198)"></rect><rect x="124" y="289" width="8" height="14" fill="rgb(228,167,128)"></rect><rect x="115" y="289" width="9" height="14" fill="rgb(233,183,139)"></rect><rect x="107" y="289" width="8" height="14" fill="rgb(240,203,154)"></rect><rect x="99" y="289" width="8" height="14" fill="rgb(238,239,190)"></rect><rect x="91" y="289" width="8" height="14" fill="rgb(245,243,189)"></rect><rect x="82" y="289" width="9" height="14" fill="rgb(218,223,191)"></rect><rect x="74" y="289" width="8" height="14" fill="rgb(230,232,190)"></rect><rect x="66" y="289" width="8" height="14" fill="rgb(237,194,147)"></rect><rect x="58" y="289" width="8" height="14" fill="rgb(246,224,169)"></rect><rect x="49" y="289" width="9" height="14" fill="rgb(249,233,175)"></rect><rect x="41" y="289" width="8" height="14" fill="rgb(226,229,191)"></rect><rect x="33" y="289" width="8" height="14" fill="rgb(207,215,192)"></rect><rect x="25" y="289" width="8" height="14" fill="rgb(168,186,196)"></rect><rect x="16" y="289" width="9" height="14" fill="rgb(214,220,192)"></rect><rect x="8" y="289" width="8" height="14" fill="rgb(218,223,191)"></rect><rect x="0" y="289" width="8" height="14" fill="rgb(230,232,190)"></rect><rect x="239" y="275" width="8" height="14" fill="rgb(123,152,200)"></rect><rect x="231" y="275" width="8" height="14" fill="rgb(69,112,205)"></rect><rect x="222" y="275" width="9" height="14" fill="rgb(110,143,201)"></rect><rect x="214" y="275" width="8" height="14" fill="rgb(106,139,202)"></rect><rect x="206" y="275" width="8" height="14" fill="rgb(87,125,203)"></rect><rect x="198" y="275" width="8" height="14" fill="rgb(178,194,195)"></rect><rect x="189" y="275" width="9" height="14" fill="rgb(127,155,200)"></rect><rect x="181" y="275" width="8" height="14" fill="rgb(81,121,204)"></rect><rect x="173" y="275" width="8" height="14" fill="rgb(65,108,205)"></rect><rect x="165" y="275" width="8" height="14" fill="rgb(62,107,206)"></rect><rect x="156" y="275" width="9" height="14" fill="rgb(94,130,203)"></rect><rect x="148" y="275" width="8" height="14" fill="rgb(170,187,196)"></rect><rect x="140" y="275" width="8" height="14" fill="rgb(168,186,196)"></rect><rect x="132" y="275" width="8" height="14" fill="rgb(143,167,198)"></rect><rect x="124" y="275" width="8" height="14" fill="rgb(247,226,170)"></rect><rect x="115" y="275" width="9" height="14" fill="rgb(234,185,141)"></rect><rect x="107" y="275" width="8" height="14" fill="rgb(239,201,152)"></rect><rect x="99" y="275" width="8" height="14" fill="rgb(230,232,190)"></rect><rect x="91" y="275" width="8" height="14" fill="rgb(247,245,189)"></rect><rect x="82" y="275" width="9" height="14" fill="rgb(193,205,194)"></rect><rect x="74" y="275" width="8" height="14" fill="rgb(230,232,190)"></rect><rect x="66" y="275" width="8" height="14" fill="rgb(238,199,151)"></rect><rect x="58" y="275" width="8" height="14" fill="rgb(250,235,177)"></rect><rect x="49" y="275" width="9" height="14" fill="rgb(254,249,186)"></rect><rect x="41" y="275" width="8" height="14" fill="rgb(222,226,191)"></rect><rect x="33" y="275" width="8" height="14" fill="rgb(207,215,192)"></rect><rect x="25" y="275" width="8" height="14" fill="rgb(164,183,196)"></rect><rect x="16" y="275" width="9" height="14" fill="rgb(234,236,190)"></rect><rect x="8" y="275" width="8" height="14" fill="rgb(218,223,191)"></rect><rect x="0" y="275" width="8" height="14" fill="rgb(222,226,191)"></rect><rect x="239" y="261" width="8" height="14" fill="rgb(129,156,200)"></rect><rect x="231" y="261" width="8" height="14" fill="rgb(65,108,205)"></rect><rect x="222" y="261" width="9" height="14" fill="rgb(94,130,203)"></rect><rect x="214" y="261" width="8" height="14" fill="rgb(102,136,202)"></rect><rect x="206" y="261" width="8" height="14" fill="rgb(83,122,204)"></rect><rect x="198" y="261" width="8" height="14" fill="rgb(172,189,196)"></rect><rect x="189" y="261" width="9" height="14" fill="rgb(120,150,200)"></rect><rect x="181" y="261" width="8" height="14" fill="rgb(83,122,204)"></rect><rect x="173" y="261" width="8" height="14" fill="rgb(56,102,206)"></rect><rect x="165" y="261" width="8" height="14" fill="rgb(58,104,206)"></rect><rect x="156" y="261" width="9" height="14" fill="rgb(91,129,203)"></rect><rect x="148" y="261" width="8" height="14" fill="rgb(168,186,196)"></rect><rect x="140" y="261" width="8" height="14" fill="rgb(133,160,199)"></rect><rect x="132" y="261" width="8" height="14" fill="rgb(139,164,199)"></rect><rect x="124" y="261" width="8" height="14" fill="rgb(253,244,183)"></rect><rect x="115" y="261" width="9" height="14" fill="rgb(231,179,136)"></rect><rect x="107" y="261" width="8" height="14" fill="rgb(237,197,149)"></rect><rect x="99" y="261" width="8" height="14" fill="rgb(222,226,191)"></rect><rect x="91" y="261" width="8" height="14" fill="rgb(249,246,189)"></rect><rect x="82" y="261" width="9" height="14" fill="rgb(189,201,194)"></rect><rect x="74" y="261" width="8" height="14" fill="rgb(230,232,190)"></rect><rect x="66" y="261" width="8" height="14" fill="rgb(245,222,167)"></rect><rect x="58" y="261" width="8" height="14" fill="rgb(254,246,185)"></rect><rect x="49" y="261" width="9" height="14" fill="rgb(236,237,190)"></rect><rect x="41" y="261" width="8" height="14" fill="rgb(228,231,190)"></rect><rect x="33" y="261" width="8" height="14" fill="rgb(201,211,193)"></rect><rect x="25" y="261" width="8" height="14" fill="rgb(166,184,196)"></rect><rect x="16" y="261" width="9" height="14" fill="rgb(236,237,190)"></rect><rect x="8" y="261" width="8" height="14" fill="rgb(212,218,192)"></rect><rect x="0" y="261" width="8" height="14" fill="rgb(230,232,190)"></rect><rect x="239" y="248" width="8" height="13" fill="rgb(125,153,200)"></rect><rect x="231" y="248" width="8" height="13" fill="rgb(54,101,206)"></rect><rect x="222" y="248" width="9" height="13" fill="rgb(96,132,203)"></rect><rect x="214" y="248" width="8" height="13" fill="rgb(94,130,203)"></rect><rect x="206" y="248" width="8" height="13" fill="rgb(73,115,205)"></rect><rect x="198" y="248" width="8" height="13" fill="rgb(164,183,196)"></rect><rect x="189" y="248" width="9" height="13" fill="rgb(120,150,200)"></rect><rect x="181" y="248" width="8" height="13" fill="rgb(73,115,205)"></rect><rect x="173" y="248" width="8" height="13" fill="rgb(48,96,207)"></rect><rect x="165" y="248" width="8" height="13" fill="rgb(48,96,207)"></rect><rect x="156" y="248" width="9" height="13" fill="rgb(89,127,203)"></rect><rect x="148" y="248" width="8" height="13" fill="rgb(162,181,197)"></rect><rect x="140" y="248" width="8" height="13" fill="rgb(114,146,201)"></rect><rect x="132" y="248" width="8" height="13" fill="rgb(154,175,197)"></rect><rect x="124" y="248" width="8" height="13" fill="rgb(255,251,188)"></rect><rect x="115" y="248" width="9" height="13" fill="rgb(248,231,173)"></rect><rect x="107" y="248" width="8" height="13" fill="rgb(234,188,143)"></rect><rect x="99" y="248" width="8" height="13" fill="rgb(222,226,191)"></rect><rect x="91" y="248" width="8" height="13" fill="rgb(247,226,170)"></rect><rect x="82" y="248" width="9" height="13" fill="rgb(185,198,194)"></rect><rect x="74" y="248" width="8" height="13" fill="rgb(236,237,190)"></rect><rect x="66" y="248" width="8" height="13" fill="rgb(251,240,180)"></rect><rect x="58" y="248" width="8" height="13" fill="rgb(248,231,173)"></rect><rect x="49" y="248" width="9" height="13" fill="rgb(252,242,182)"></rect><rect x="41" y="248" width="8" height="13" fill="rgb(224,228,191)"></rect><rect x="33" y="248" width="8" height="13" fill="rgb(195,206,194)"></rect><rect x="25" y="248" width="8" height="13" fill="rgb(178,194,195)"></rect><rect x="16" y="248" width="9" height="13" fill="rgb(243,242,189)"></rect><rect x="8" y="248" width="8" height="13" fill="rgb(205,214,193)"></rect><rect x="0" y="248" width="8" height="13" fill="rgb(214,220,192)"></rect><rect x="239" y="234" width="8" height="14" fill="rgb(120,150,200)"></rect><rect x="231" y="234" width="8" height="14" fill="rgb(67,110,205)"></rect><rect x="222" y="234" width="9" height="14" fill="rgb(89,127,203)"></rect><rect x="214" y="234" width="8" height="14" fill="rgb(96,132,203)"></rect><rect x="206" y="234" width="8" height="14" fill="rgb(60,105,206)"></rect><rect x="198" y="234" width="8" height="14" fill="rgb(164,183,196)"></rect><rect x="189" y="234" width="9" height="14" fill="rgb(125,153,200)"></rect><rect x="181" y="234" width="8" height="14" fill="rgb(62,107,206)"></rect><rect x="173" y="234" width="8" height="14" fill="rgb(48,96,207)"></rect><rect x="165" y="234" width="8" height="14" fill="rgb(48,96,207)"></rect><rect x="156" y="234" width="9" height="14" fill="rgb(85,124,204)"></rect><rect x="148" y="234" width="8" height="14" fill="rgb(158,178,197)"></rect><rect x="140" y="234" width="8" height="14" fill="rgb(127,155,200)"></rect><rect x="132" y="234" width="8" height="14" fill="rgb(154,175,197)"></rect><rect x="124" y="234" width="8" height="14" fill="rgb(255,251,188)"></rect><rect x="115" y="234" width="9" height="14" fill="rgb(253,249,188)"></rect><rect x="107" y="234" width="8" height="14" fill="rgb(234,188,143)"></rect><rect x="99" y="234" width="8" height="14" fill="rgb(220,225,191)"></rect><rect x="91" y="234" width="8" height="14" fill="rgb(249,233,175)"></rect><rect x="82" y="234" width="9" height="14" fill="rgb(187,200,194)"></rect><rect x="74" y="234" width="8" height="14" fill="rgb(232,234,190)"></rect><rect x="66" y="234" width="8" height="14" fill="rgb(251,248,188)"></rect><rect x="58" y="234" width="8" height="14" fill="rgb(247,226,170)"></rect><rect x="49" y="234" width="9" height="14" fill="rgb(251,237,178)"></rect><rect x="41" y="234" width="8" height="14" fill="rgb(224,228,191)"></rect><rect x="33" y="234" width="8" height="14" fill="rgb(195,206,194)"></rect><rect x="25" y="234" width="8" height="14" fill="rgb(178,194,195)"></rect><rect x="16" y="234" width="9" height="14" fill="rgb(247,245,189)"></rect><rect x="8" y="234" width="8" height="14" fill="rgb(199,209,193)"></rect><rect x="0" y="234" width="8" height="14" fill="rgb(212,218,192)"></rect><rect x="239" y="220" width="8" height="14" fill="rgb(104,138,202)"></rect><rect x="231" y="220" width="8" height="14" fill="rgb(58,104,206)"></rect><rect x="222" y="220" width="9" height="14" fill="rgb(73,115,205)"></rect><rect x="214" y="220" width="8" height="14" fill="rgb(81,121,204)"></rect><rect x="206" y="220" width="8" height="14" fill="rgb(71,113,205)"></rect><rect x="198" y="220" width="8" height="14" fill="rgb(154,175,197)"></rect><rect x="189" y="220" width="9" height="14" fill="rgb(123,152,200)"></rect><rect x="181" y="220" width="8" height="14" fill="rgb(62,107,206)"></rect><rect x="173" y="220" width="8" height="14" fill="rgb(48,96,207)"></rect><rect x="165" y="220" width="8" height="14" fill="rgb(48,96,207)"></rect><rect x="156" y="220" width="9" height="14" fill="rgb(79,119,204)"></rect><rect x="148" y="220" width="8" height="14" fill="rgb(172,189,196)"></rect><rect x="140" y="220" width="8" height="14" fill="rgb(120,150,200)"></rect><rect x="132" y="220" width="8" height="14" fill="rgb(166,184,196)"></rect><rect x="124" y="220" width="8" height="14" fill="rgb(255,251,188)"></rect><rect x="115" y="220" width="9" height="14" fill="rgb(234,236,190)"></rect><rect x="107" y="220" width="8" height="14" fill="rgb(237,194,147)"></rect><rect x="99" y="220" width="8" height="14" fill="rgb(220,225,191)"></rect><rect x="91" y="220" width="8" height="14" fill="rgb(248,231,173)"></rect><rect x="82" y="220" width="9" height="14" fill="rgb(189,201,194)"></rect><rect x="74" y="220" width="8" height="14" fill="rgb(228,231,190)"></rect><rect x="66" y="220" width="8" height="14" fill="rgb(251,248,188)"></rect><rect x="58" y="220" width="8" height="14" fill="rgb(248,231,173)"></rect><rect x="49" y="220" width="9" height="14" fill="rgb(251,240,180)"></rect><rect x="41" y="220" width="8" height="14" fill="rgb(234,236,190)"></rect><rect x="33" y="220" width="8" height="14" fill="rgb(197,208,193)"></rect><rect x="25" y="220" width="8" height="14" fill="rgb(178,194,195)"></rect><rect x="16" y="220" width="9" height="14" fill="rgb(251,248,188)"></rect><rect x="8" y="220" width="8" height="14" fill="rgb(207,215,192)"></rect><rect x="0" y="220" width="8" height="14" fill="rgb(216,222,192)"></rect><rect x="239" y="206" width="8" height="14" fill="rgb(98,133,202)"></rect><rect x="231" y="206" width="8" height="14" fill="rgb(62,107,206)"></rect><rect x="222" y="206" width="9" height="14" fill="rgb(87,125,203)"></rect><rect x="214" y="206" width="8" height="14" fill="rgb(85,124,204)"></rect><rect x="206" y="206" width="8" height="14" fill="rgb(67,110,205)"></rect><rect x="198" y="206" width="8" height="14" fill="rgb(141,166,198)"></rect><rect x="189" y="206" width="9" height="14" fill="rgb(104,138,202)"></rect><rect x="181" y="206" width="8" height="14" fill="rgb(62,107,206)"></rect><rect x="173" y="206" width="8" height="14" fill="rgb(48,96,207)"></rect><rect x="165" y="206" width="8" height="14" fill="rgb(50,98,207)"></rect><rect x="156" y="206" width="9" height="14" fill="rgb(87,125,203)"></rect><rect x="148" y="206" width="8" height="14" fill="rgb(176,192,195)"></rect><rect x="140" y="206" width="8" height="14" fill="rgb(152,174,198)"></rect><rect x="132" y="206" width="8" height="14" fill="rgb(185,198,194)"></rect><rect x="124" y="206" width="8" height="14" fill="rgb(255,251,188)"></rect><rect x="115" y="206" width="9" height="14" fill="rgb(251,248,188)"></rect><rect x="107" y="206" width="8" height="14" fill="rgb(240,203,154)"></rect><rect x="99" y="206" width="8" height="14" fill="rgb(230,232,190)"></rect><rect x="91" y="206" width="8" height="14" fill="rgb(249,233,175)"></rect><rect x="82" y="206" width="9" height="14" fill="rgb(218,223,191)"></rect><rect x="74" y="206" width="8" height="14" fill="rgb(250,235,177)"></rect><rect x="66" y="206" width="8" height="14" fill="rgb(249,233,175)"></rect><rect x="58" y="206" width="8" height="14" fill="rgb(246,224,169)"></rect><rect x="49" y="206" width="9" height="14" fill="rgb(254,246,185)"></rect><rect x="41" y="206" width="8" height="14" fill="rgb(238,239,190)"></rect><rect x="33" y="206" width="8" height="14" fill="rgb(207,215,192)"></rect><rect x="25" y="206" width="8" height="14" fill="rgb(178,194,195)"></rect><rect x="16" y="206" width="9" height="14" fill="rgb(251,248,188)"></rect><rect x="8" y="206" width="8" height="14" fill="rgb(216,222,192)"></rect><rect x="0" y="206" width="8" height="14" fill="rgb(228,231,190)"></rect><rect x="239" y="193" width="8" height="13" fill="rgb(91,129,203)"></rect><rect x="231" y="193" width="8" height="13" fill="rgb(62,107,206)"></rect><rect x="222" y="193" width="9" height="13" fill="rgb(89,127,203)"></rect><rect x="214" y="193" width="8" height="13" fill="rgb(98,133,202)"></rect><rect x="206" y="193" width="8" height="13" fill="rgb(79,119,204)"></rect><rect x="198" y="193" width="8" height="13" fill="rgb(154,175,197)"></rect><rect x="189" y="193" width="9" height="13" fill="rgb(222,226,191)"></rect><rect x="181" y="193" width="8" height="13" fill="rgb(75,116,205)"></rect><rect x="173" y="193" width="8" height="13" fill="rgb(65,108,205)"></rect><rect x="165" y="193" width="8" height="13" fill="rgb(67,110,205)"></rect><rect x="156" y="193" width="9" height="13" fill="rgb(120,150,200)"></rect><rect x="148" y="193" width="8" height="13" fill="rgb(199,209,193)"></rect><rect x="140" y="193" width="8" height="13" fill="rgb(183,197,195)"></rect><rect x="132" y="193" width="8" height="13" fill="rgb(214,220,192)"></rect><rect x="124" y="193" width="8" height="13" fill="rgb(250,235,177)"></rect><rect x="115" y="193" width="9" height="13" fill="rgb(246,224,169)"></rect><rect x="107" y="193" width="8" height="13" fill="rgb(240,206,156)"></rect><rect x="99" y="193" width="8" height="13" fill="rgb(236,237,190)"></rect><rect x="91" y="193" width="8" height="13" fill="rgb(252,242,182)"></rect><rect x="82" y="193" width="9" height="13" fill="rgb(243,242,189)"></rect><rect x="74" y="193" width="8" height="13" fill="rgb(246,224,169)"></rect><rect x="66" y="193" width="8" height="13" fill="rgb(244,217,164)"></rect><rect x="58" y="193" width="8" height="13" fill="rgb(245,219,165)"></rect><rect x="49" y="193" width="9" height="13" fill="rgb(251,237,178)"></rect><rect x="41" y="193" width="8" height="13" fill="rgb(245,243,189)"></rect><rect x="33" y="193" width="8" height="13" fill="rgb(216,222,192)"></rect><rect x="25" y="193" width="8" height="13" fill="rgb(209,217,192)"></rect><rect x="16" y="193" width="9" height="13" fill="rgb(254,246,185)"></rect><rect x="8" y="193" width="8" height="13" fill="rgb(226,229,191)"></rect><rect x="0" y="193" width="8" height="13" fill="rgb(238,239,190)"></rect><rect x="239" y="179" width="8" height="14" fill="rgb(114,146,201)"></rect><rect x="231" y="179" width="8" height="14" fill="rgb(104,138,202)"></rect><rect x="222" y="179" width="9" height="14" fill="rgb(141,166,198)"></rect><rect x="214" y="179" width="8" height="14" fill="rgb(154,175,197)"></rect><rect x="206" y="179" width="8" height="14" fill="rgb(133,160,199)"></rect><rect x="198" y="179" width="8" height="14" fill="rgb(176,192,195)"></rect><rect x="189" y="179" width="9" height="14" fill="rgb(249,246,189)"></rect><rect x="181" y="179" width="8" height="14" fill="rgb(123,152,200)"></rect><rect x="173" y="179" width="8" height="14" fill="rgb(131,158,199)"></rect><rect x="165" y="179" width="8" height="14" fill="rgb(133,160,199)"></rect><rect x="156" y="179" width="9" height="14" fill="rgb(178,194,195)"></rect><rect x="148" y="179" width="8" height="14" fill="rgb(238,239,190)"></rect><rect x="140" y="179" width="8" height="14" fill="rgb(218,223,191)"></rect><rect x="132" y="179" width="8" height="14" fill="rgb(234,236,190)"></rect><rect x="124" y="179" width="8" height="14" fill="rgb(244,217,164)"></rect><rect x="115" y="179" width="9" height="14" fill="rgb(241,208,157)"></rect><rect x="107" y="179" width="8" height="14" fill="rgb(240,206,156)"></rect><rect x="99" y="179" width="8" height="14" fill="rgb(251,248,188)"></rect><rect x="91" y="179" width="8" height="14" fill="rgb(252,242,182)"></rect><rect x="82" y="179" width="9" height="14" fill="rgb(253,249,188)"></rect><rect x="74" y="179" width="8" height="14" fill="rgb(240,203,154)"></rect><rect x="66" y="179" width="8" height="14" fill="rgb(236,192,146)"></rect><rect x="58" y="179" width="8" height="14" fill="rgb(237,197,149)"></rect><rect x="49" y="179" width="9" height="14" fill="rgb(250,235,177)"></rect><rect x="41" y="179" width="8" height="14" fill="rgb(252,242,182)"></rect><rect x="33" y="179" width="8" height="14" fill="rgb(226,229,191)"></rect><rect x="25" y="179" width="8" height="14" fill="rgb(252,242,182)"></rect><rect x="16" y="179" width="9" height="14" fill="rgb(252,242,182)"></rect><rect x="8" y="179" width="8" height="14" fill="rgb(241,240,189)"></rect><rect x="0" y="179" width="8" height="14" fill="rgb(247,245,189)"></rect><rect x="239" y="165" width="8" height="14" fill="rgb(145,169,198)"></rect><rect x="231" y="165" width="8" height="14" fill="rgb(158,178,197)"></rect><rect x="222" y="165" width="9" height="14" fill="rgb(203,212,193)"></rect><rect x="214" y="165" width="8" height="14" fill="rgb(195,206,194)"></rect><rect x="206" y="165" width="8" height="14" fill="rgb(193,205,194)"></rect><rect x="198" y="165" width="8" height="14" fill="rgb(183,197,195)"></rect><rect x="189" y="165" width="9" height="14" fill="rgb(185,198,194)"></rect><rect x="181" y="165" width="8" height="14" fill="rgb(168,186,196)"></rect><rect x="173" y="165" width="8" height="14" fill="rgb(168,186,196)"></rect><rect x="165" y="165" width="8" height="14" fill="rgb(174,191,195)"></rect><rect x="156" y="165" width="9" height="14" fill="rgb(216,222,192)"></rect><rect x="148" y="165" width="8" height="14" fill="rgb(255,251,188)"></rect><rect x="140" y="165" width="8" height="14" fill="rgb(251,240,180)"></rect><rect x="132" y="165" width="8" height="14" fill="rgb(254,246,185)"></rect><rect x="124" y="165" width="8" height="14" fill="rgb(217,133,104)"></rect><rect x="115" y="165" width="9" height="14" fill="rgb(237,194,147)"></rect><rect x="107" y="165" width="8" height="14" fill="rgb(237,194,147)"></rect><rect x="99" y="165" width="8" height="14" fill="rgb(254,246,185)"></rect><rect x="91" y="165" width="8" height="14" fill="rgb(253,244,183)"></rect><rect x="82" y="165" width="9" height="14" fill="rgb(254,249,186)"></rect><rect x="74" y="165" width="8" height="14" fill="rgb(227,165,126)"></rect><rect x="66" y="165" width="8" height="14" fill="rgb(234,188,143)"></rect><rect x="58" y="165" width="8" height="14" fill="rgb(240,203,154)"></rect><rect x="49" y="165" width="9" height="14" fill="rgb(247,245,189)"></rect><rect x="41" y="165" width="8" height="14" fill="rgb(252,242,182)"></rect><rect x="33" y="165" width="8" height="14" fill="rgb(247,245,189)"></rect><rect x="25" y="165" width="8" height="14" fill="rgb(245,219,165)"></rect><rect x="16" y="165" width="9" height="14" fill="rgb(251,240,180)"></rect><rect x="8" y="165" width="8" height="14" fill="rgb(247,226,170)"></rect><rect x="0" y="165" width="8" height="14" fill="rgb(248,228,172)"></rect><rect x="239" y="151" width="8" height="14" fill="rgb(172,189,196)"></rect><rect x="231" y="151" width="8" height="14" fill="rgb(187,200,194)"></rect><rect x="222" y="151" width="9" height="14" fill="rgb(230,232,190)"></rect><rect x="214" y="151" width="8" height="14" fill="rgb(222,226,191)"></rect><rect x="206" y="151" width="8" height="14" fill="#F8F8F8"></rect><rect x="198" y="151" width="8" height="14" fill="rgb(203,212,193)"></rect><rect x="189" y="151" width="9" height="14" fill="rgb(201,211,193)"></rect><rect x="181" y="151" width="8" height="14" fill="rgb(189,201,194)"></rect><rect x="173" y="151" width="8" height="14" fill="rgb(185,198,194)"></rect><rect x="165" y="151" width="8" height="14" fill="rgb(203,212,193)"></rect><rect x="156" y="151" width="9" height="14" fill="rgb(247,245,189)"></rect><rect x="148" y="151" width="8" height="14" fill="rgb(241,208,157)"></rect><rect x="140" y="151" width="8" height="14" fill="rgb(246,224,169)"></rect><rect x="132" y="151" width="8" height="14" fill="rgb(249,246,189)"></rect><rect x="124" y="151" width="8" height="14" fill="rgb(209,108,86)"></rect><rect x="115" y="151" width="9" height="14" fill="rgb(234,185,141)"></rect><rect x="107" y="151" width="8" height="14" fill="rgb(227,165,126)"></rect><rect x="99" y="151" width="8" height="14" fill="rgb(253,244,183)"></rect><rect x="91" y="151" width="8" height="14" fill="rgb(248,231,173)"></rect><rect x="82" y="151" width="9" height="14" fill="rgb(251,240,180)"></rect><rect x="74" y="151" width="8" height="14" fill="rgb(220,145,112)"></rect><rect x="66" y="151" width="8" height="14" fill="rgb(235,190,144)"></rect><rect x="58" y="151" width="8" height="14" fill="rgb(239,201,152)"></rect><rect x="49" y="151" width="9" height="14" fill="rgb(232,234,190)"></rect><rect x="41" y="151" width="8" height="14" fill="rgb(245,219,165)"></rect><rect x="33" y="151" width="8" height="14" fill="rgb(253,244,183)"></rect><rect x="25" y="151" width="8" height="14" fill="rgb(240,206,156)"></rect><rect x="16" y="151" width="9" height="14" fill="rgb(245,222,167)"></rect><rect x="8" y="151" width="8" height="14" fill="rgb(245,222,167)"></rect><rect x="0" y="151" width="8" height="14" fill="rgb(251,237,178)"></rect><rect x="239" y="138" width="8" height="13" fill="rgb(189,201,194)"></rect><rect x="231" y="138" width="8" height="13" fill="rgb(214,220,192)"></rect><rect x="222" y="138" width="9" height="13" fill="rgb(251,248,188)"></rect><rect x="214" y="138" width="8" height="13" fill="rgb(243,242,189)"></rect><rect x="206" y="138" width="8" height="13" fill="rgb(234,236,190)"></rect><rect x="198" y="138" width="8" height="13" fill="rgb(209,217,192)"></rect><rect x="189" y="138" width="9" height="13" fill="rgb(205,214,193)"></rect><rect x="181" y="138" width="8" height="13" fill="rgb(218,223,191)"></rect><rect x="173" y="138" width="8" height="13" fill="rgb(224,228,191)"></rect><rect x="165" y="138" width="8" height="13" fill="rgb(232,234,190)"></rect><rect x="156" y="138" width="9" height="13" fill="rgb(251,240,180)"></rect><rect x="148" y="138" width="8" height="13" fill="rgb(237,197,149)"></rect><rect x="140" y="138" width="8" height="13" fill="rgb(241,208,157)"></rect><rect x="132" y="138" width="8" height="13" fill="rgb(234,236,190)"></rect><rect x="124" y="138" width="8" height="13" fill="rgb(207,104,82)"></rect><rect x="115" y="138" width="9" height="13" fill="rgb(230,174,133)"></rect><rect x="107" y="138" width="8" height="13" fill="rgb(225,158,121)"></rect><rect x="99" y="138" width="8" height="13" fill="rgb(235,190,144)"></rect><rect x="91" y="138" width="8" height="13" fill="rgb(250,235,177)"></rect><rect x="82" y="138" width="9" height="13" fill="rgb(244,217,164)"></rect><rect x="74" y="138" width="8" height="13" fill="rgb(217,133,104)"></rect><rect x="66" y="138" width="8" height="13" fill="rgb(235,190,144)"></rect><rect x="58" y="138" width="8" height="13" fill="rgb(246,224,169)"></rect><rect x="49" y="138" width="9" height="13" fill="rgb(243,242,189)"></rect><rect x="41" y="138" width="8" height="13" fill="rgb(252,242,182)"></rect><rect x="33" y="138" width="8" height="13" fill="rgb(242,213,160)"></rect><rect x="25" y="138" width="8" height="13" fill="rgb(230,174,133)"></rect><rect x="16" y="138" width="9" height="13" fill="rgb(238,199,151)"></rect><rect x="8" y="138" width="8" height="13" fill="rgb(239,201,152)"></rect><rect x="0" y="138" width="8" height="13" fill="rgb(248,228,172)"></rect><rect x="239" y="124" width="8" height="14" fill="rgb(218,223,191)"></rect><rect x="231" y="124" width="8" height="14" fill="rgb(222,226,191)"></rect><rect x="222" y="124" width="9" height="14" fill="rgb(253,244,183)"></rect><rect x="214" y="124" width="8" height="14" fill="rgb(255,251,188)"></rect><rect x="206" y="124" width="8" height="14" fill="rgb(251,248,188)"></rect><rect x="198" y="124" width="8" height="14" fill="rgb(232,234,190)"></rect><rect x="189" y="124" width="9" height="14" fill="rgb(220,225,191)"></rect><rect x="181" y="124" width="8" height="14" fill="rgb(236,237,190)"></rect><rect x="173" y="124" width="8" height="14" fill="rgb(232,234,190)"></rect><rect x="165" y="124" width="8" height="14" fill="rgb(238,239,190)"></rect><rect x="156" y="124" width="9" height="14" fill="rgb(250,235,177)"></rect><rect x="148" y="124" width="8" height="14" fill="rgb(234,188,143)"></rect><rect x="140" y="124" width="8" height="14" fill="rgb(225,158,121)"></rect><rect x="132" y="124" width="8" height="14" fill="rgb(236,237,190)"></rect><rect x="124" y="124" width="8" height="14" fill="rgb(201,86,69)"></rect><rect x="115" y="124" width="9" height="14" fill="rgb(231,179,136)"></rect><rect x="107" y="124" width="8" height="14" fill="rgb(214,124,97)"></rect><rect x="99" y="124" width="8" height="14" fill="rgb(228,167,128)"></rect><rect x="91" y="124" width="8" height="14" fill="rgb(253,244,183)"></rect><rect x="82" y="124" width="9" height="14" fill="rgb(238,199,151)"></rect><rect x="74" y="124" width="8" height="14" fill="rgb(209,111,87)"></rect><rect x="66" y="124" width="8" height="14" fill="rgb(229,172,131)"></rect><rect x="58" y="124" width="8" height="14" fill="rgb(231,179,136)"></rect><rect x="49" y="124" width="9" height="14" fill="rgb(241,240,189)"></rect><rect x="41" y="124" width="8" height="14" fill="rgb(248,228,172)"></rect><rect x="33" y="124" width="8" height="14" fill="rgb(241,208,157)"></rect><rect x="25" y="124" width="8" height="14" fill="rgb(232,181,138)"></rect><rect x="16" y="124" width="9" height="14" fill="rgb(234,185,141)"></rect><rect x="8" y="124" width="8" height="14" fill="rgb(223,154,118)"></rect><rect x="0" y="124" width="8" height="14" fill="rgb(244,217,164)"></rect><rect x="239" y="110" width="8" height="14" fill="rgb(224,228,191)"></rect><rect x="231" y="110" width="8" height="14" fill="rgb(243,242,189)"></rect><rect x="222" y="110" width="9" height="14" fill="rgb(245,219,165)"></rect><rect x="214" y="110" width="8" height="14" fill="rgb(253,244,183)"></rect><rect x="206" y="110" width="8" height="14" fill="rgb(253,244,183)"></rect><rect x="198" y="110" width="8" height="14" fill="rgb(230,232,190)"></rect><rect x="189" y="110" width="9" height="14" fill="rgb(222,226,191)"></rect><rect x="181" y="110" width="8" height="14" fill="rgb(251,248,188)"></rect><rect x="173" y="110" width="8" height="14" fill="rgb(241,240,189)"></rect><rect x="165" y="110" width="8" height="14" fill="rgb(247,245,189)"></rect><rect x="156" y="110" width="9" height="14" fill="rgb(248,231,173)"></rect><rect x="148" y="110" width="8" height="14" fill="rgb(228,167,128)"></rect><rect x="140" y="110" width="8" height="14" fill="rgb(218,138,107)"></rect><rect x="132" y="110" width="8" height="14" fill="rgb(236,237,190)"></rect><rect x="124" y="110" width="8" height="14" fill="rgb(197,72,60)"></rect><rect x="115" y="110" width="9" height="14" fill="rgb(227,165,126)"></rect><rect x="107" y="110" width="8" height="14" fill="rgb(212,120,94)"></rect><rect x="99" y="110" width="8" height="14" fill="rgb(234,188,143)"></rect><rect x="91" y="110" width="8" height="14" fill="rgb(251,248,188)"></rect><rect x="82" y="110" width="9" height="14" fill="rgb(240,203,154)"></rect><rect x="74" y="110" width="8" height="14" fill="rgb(206,102,81)"></rect><rect x="66" y="110" width="8" height="14" fill="rgb(230,174,133)"></rect><rect x="58" y="110" width="8" height="14" fill="rgb(230,174,133)"></rect><rect x="49" y="110" width="9" height="14" fill="rgb(246,224,169)"></rect><rect x="41" y="110" width="8" height="14" fill="rgb(240,203,154)"></rect><rect x="33" y="110" width="8" height="14" fill="rgb(250,235,177)"></rect><rect x="25" y="110" width="8" height="14" fill="rgb(235,190,144)"></rect><rect x="16" y="110" width="9" height="14" fill="rgb(235,190,144)"></rect><rect x="8" y="110" width="8" height="14" fill="rgb(214,124,97)"></rect><rect x="0" y="110" width="8" height="14" fill="rgb(237,197,149)"></rect><rect x="239" y="96" width="8" height="14" fill="rgb(232,234,190)"></rect><rect x="231" y="96" width="8" height="14" fill="rgb(253,244,183)"></rect><rect x="222" y="96" width="9" height="14" fill="rgb(248,231,173)"></rect><rect x="214" y="96" width="8" height="14" fill="rgb(249,233,175)"></rect><rect x="206" y="96" width="8" height="14" fill="rgb(250,235,177)"></rect><rect x="198" y="96" width="8" height="14" fill="rgb(241,240,189)"></rect><rect x="189" y="96" width="9" height="14" fill="rgb(238,239,190)"></rect><rect x="181" y="96" width="8" height="14" fill="rgb(253,244,183)"></rect><rect x="173" y="96" width="8" height="14" fill="rgb(245,243,189)"></rect><rect x="165" y="96" width="8" height="14" fill="rgb(243,242,189)"></rect><rect x="156" y="96" width="9" height="14" fill="rgb(246,224,169)"></rect><rect x="148" y="96" width="8" height="14" fill="rgb(227,165,126)"></rect><rect x="140" y="96" width="8" height="14" fill="rgb(219,140,108)"></rect><rect x="132" y="96" width="8" height="14" fill="rgb(241,240,189)"></rect><rect x="124" y="96" width="8" height="14" fill="rgb(200,84,68)"></rect><rect x="115" y="96" width="9" height="14" fill="rgb(220,142,110)"></rect><rect x="107" y="96" width="8" height="14" fill="rgb(208,106,84)"></rect><rect x="99" y="96" width="8" height="14" fill="rgb(231,176,134)"></rect><rect x="91" y="96" width="8" height="14" fill="rgb(238,239,190)"></rect><rect x="82" y="96" width="9" height="14" fill="rgb(238,199,151)"></rect><rect x="74" y="96" width="8" height="14" fill="rgb(206,99,79)"></rect><rect x="66" y="96" width="8" height="14" fill="rgb(234,188,143)"></rect><rect x="58" y="96" width="8" height="14" fill="rgb(253,244,183)"></rect><rect x="49" y="96" width="9" height="14" fill="rgb(252,242,182)"></rect><rect x="41" y="96" width="8" height="14" fill="rgb(241,208,157)"></rect><rect x="33" y="96" width="8" height="14" fill="rgb(229,172,131)"></rect><rect x="25" y="96" width="8" height="14" fill="rgb(216,131,102)"></rect><rect x="16" y="96" width="9" height="14" fill="rgb(238,199,151)"></rect><rect x="8" y="96" width="8" height="14" fill="rgb(216,131,102)"></rect><rect x="0" y="96" width="8" height="14" fill="rgb(251,240,180)"></rect><rect x="239" y="83" width="8" height="13" fill="rgb(230,232,190)"></rect><rect x="231" y="83" width="8" height="13" fill="rgb(254,249,186)"></rect><rect x="222" y="83" width="9" height="13" fill="rgb(242,213,160)"></rect><rect x="214" y="83" width="8" height="13" fill="rgb(239,201,152)"></rect><rect x="206" y="83" width="8" height="13" fill="rgb(247,226,170)"></rect><rect x="198" y="83" width="8" height="13" fill="rgb(234,236,190)"></rect><rect x="189" y="83" width="9" height="13" fill="rgb(247,245,189)"></rect><rect x="181" y="83" width="8" height="13" fill="rgb(253,244,183)"></rect><rect x="173" y="83" width="8" height="13" fill="rgb(251,248,188)"></rect><rect x="165" y="83" width="8" height="13" fill="rgb(254,246,185)"></rect><rect x="156" y="83" width="9" height="13" fill="rgb(248,228,172)"></rect><rect x="148" y="83" width="8" height="13" fill="#F8F8F8"></rect><rect x="140" y="83" width="8" height="13" fill="rgb(219,140,108)"></rect><rect x="132" y="83" width="8" height="13" fill="rgb(241,240,189)"></rect><rect x="124" y="83" width="8" height="13" fill="rgb(211,115,91)"></rect><rect x="115" y="83" width="9" height="13" fill="rgb(209,111,87)"></rect><rect x="107" y="83" width="8" height="13" fill="rgb(216,131,102)"></rect><rect x="99" y="83" width="8" height="13" fill="rgb(223,154,118)"></rect><rect x="91" y="83" width="8" height="13" fill="rgb(236,237,190)"></rect><rect x="82" y="83" width="9" height="13" fill="rgb(239,201,152)"></rect><rect x="74" y="83" width="8" height="13" fill="rgb(204,95,76)"></rect><rect x="66" y="83" width="8" height="13" fill="rgb(237,194,147)"></rect><rect x="58" y="83" width="8" height="13" fill="rgb(248,231,173)"></rect><rect x="49" y="83" width="9" height="13" fill="rgb(234,236,190)"></rect><rect x="41" y="83" width="8" height="13" fill="rgb(244,217,164)"></rect><rect x="33" y="83" width="8" height="13" fill="rgb(223,151,117)"></rect><rect x="25" y="83" width="8" height="13" fill="rgb(217,136,105)"></rect><rect x="16" y="83" width="9" height="13" fill="rgb(228,167,128)"></rect><rect x="8" y="83" width="8" height="13" fill="rgb(223,154,118)"></rect><rect x="0" y="83" width="8" height="13" fill="rgb(251,248,188)"></rect><rect x="239" y="69" width="8" height="14" fill="rgb(236,237,190)"></rect><rect x="231" y="69" width="8" height="14" fill="rgb(250,235,177)"></rect><rect x="222" y="69" width="9" height="14" fill="rgb(241,208,157)"></rect><rect x="214" y="69" width="8" height="14" fill="rgb(239,201,152)"></rect><rect x="206" y="69" width="8" height="14" fill="rgb(245,219,165)"></rect><rect x="198" y="69" width="8" height="14" fill="rgb(238,239,190)"></rect><rect x="189" y="69" width="9" height="14" fill="rgb(249,246,189)"></rect><rect x="181" y="69" width="8" height="14" fill="rgb(253,249,188)"></rect><rect x="173" y="69" width="8" height="14" fill="rgb(254,246,185)"></rect><rect x="165" y="69" width="8" height="14" fill="rgb(253,244,183)"></rect><rect x="156" y="69" width="9" height="14" fill="rgb(248,231,173)"></rect><rect x="148" y="69" width="8" height="14" fill="rgb(234,188,143)"></rect><rect x="140" y="69" width="8" height="14" fill="rgb(220,145,112)"></rect><rect x="132" y="69" width="8" height="14" fill="rgb(236,237,190)"></rect><rect x="124" y="69" width="8" height="14" fill="rgb(211,118,92)"></rect><rect x="115" y="69" width="9" height="14" fill="rgb(211,118,92)"></rect><rect x="107" y="69" width="8" height="14" fill="rgb(220,142,110)"></rect><rect x="99" y="69" width="8" height="14" fill="rgb(226,163,125)"></rect><rect x="91" y="69" width="8" height="14" fill="rgb(238,239,190)"></rect><rect x="82" y="69" width="9" height="14" fill="rgb(241,208,157)"></rect><rect x="74" y="69" width="8" height="14" fill="rgb(206,99,79)"></rect><rect x="66" y="69" width="8" height="14" fill="rgb(243,215,162)"></rect><rect x="58" y="69" width="8" height="14" fill="rgb(247,245,189)"></rect><rect x="49" y="69" width="9" height="14" fill="rgb(243,242,189)"></rect><rect x="41" y="69" width="8" height="14" fill="rgb(251,240,180)"></rect><rect x="33" y="69" width="8" height="14" fill="rgb(221,147,113)"></rect><rect x="25" y="69" width="8" height="14" fill="rgb(217,136,105)"></rect><rect x="16" y="69" width="9" height="14" fill="rgb(227,165,126)"></rect><rect x="8" y="69" width="8" height="14" fill="rgb(232,181,138)"></rect><rect x="0" y="69" width="8" height="14" fill="rgb(253,249,188)"></rect><rect x="239" y="55" width="8" height="14" fill="rgb(218,223,191)"></rect><rect x="231" y="55" width="8" height="14" fill="rgb(247,245,189)"></rect><rect x="222" y="55" width="9" height="14" fill="rgb(249,233,175)"></rect><rect x="214" y="55" width="8" height="14" fill="rgb(248,228,172)"></rect><rect x="206" y="55" width="8" height="14" fill="rgb(255,251,188)"></rect><rect x="198" y="55" width="8" height="14" fill="rgb(230,232,190)"></rect><rect x="189" y="55" width="9" height="14" fill="rgb(230,232,190)"></rect><rect x="181" y="55" width="8" height="14" fill="rgb(249,246,189)"></rect><rect x="173" y="55" width="8" height="14" fill="rgb(243,242,189)"></rect><rect x="165" y="55" width="8" height="14" fill="rgb(251,248,188)"></rect><rect x="156" y="55" width="9" height="14" fill="rgb(252,242,182)"></rect><rect x="148" y="55" width="8" height="14" fill="rgb(234,185,141)"></rect><rect x="140" y="55" width="8" height="14" fill="rgb(226,163,125)"></rect><rect x="132" y="55" width="8" height="14" fill="rgb(241,240,189)"></rect><rect x="124" y="55" width="8" height="14" fill="rgb(216,131,102)"></rect><rect x="115" y="55" width="9" height="14" fill="rgb(221,147,113)"></rect><rect x="107" y="55" width="8" height="14" fill="rgb(221,147,113)"></rect><rect x="99" y="55" width="8" height="14" fill="rgb(227,165,126)"></rect><rect x="91" y="55" width="8" height="14" fill="rgb(251,237,178)"></rect><rect x="82" y="55" width="9" height="14" fill="rgb(243,215,162)"></rect><rect x="74" y="55" width="8" height="14" fill="rgb(213,122,95)"></rect><rect x="66" y="55" width="8" height="14" fill="rgb(241,208,157)"></rect><rect x="58" y="55" width="8" height="14" fill="rgb(250,235,177)"></rect><rect x="49" y="55" width="9" height="14" fill="rgb(224,228,191)"></rect><rect x="41" y="55" width="8" height="14" fill="rgb(254,249,186)"></rect><rect x="33" y="55" width="8" height="14" fill="rgb(223,151,117)"></rect><rect x="25" y="55" width="8" height="14" fill="rgb(220,145,112)"></rect><rect x="16" y="55" width="9" height="14" fill="rgb(237,194,147)"></rect><rect x="8" y="55" width="8" height="14" fill="rgb(240,203,154)"></rect><rect x="0" y="55" width="8" height="14" fill="rgb(254,249,186)"></rect><rect x="239" y="41" width="8" height="14" fill="rgb(152,174,198)"></rect><rect x="231" y="41" width="8" height="14" fill="rgb(180,195,195)"></rect><rect x="222" y="41" width="9" height="14" fill="rgb(195,206,194)"></rect><rect x="214" y="41" width="8" height="14" fill="rgb(201,211,193)"></rect><rect x="206" y="41" width="8" height="14" fill="rgb(195,206,194)"></rect><rect x="198" y="41" width="8" height="14" fill="rgb(209,217,192)"></rect><rect x="189" y="41" width="9" height="14" fill="rgb(199,209,193)"></rect><rect x="181" y="41" width="8" height="14" fill="rgb(178,194,195)"></rect><rect x="173" y="41" width="8" height="14" fill="rgb(164,183,196)"></rect><rect x="165" y="41" width="8" height="14" fill="rgb(191,203,194)"></rect><rect x="156" y="41" width="9" height="14" fill="rgb(245,243,189)"></rect><rect x="148" y="41" width="8" height="14" fill="rgb(240,206,156)"></rect><rect x="140" y="41" width="8" height="14" fill="rgb(239,201,152)"></rect><rect x="132" y="41" width="8" height="14" fill="rgb(241,240,189)"></rect><rect x="124" y="41" width="8" height="14" fill="rgb(223,151,117)"></rect><rect x="115" y="41" width="9" height="14" fill="rgb(226,163,125)"></rect><rect x="107" y="41" width="8" height="14" fill="rgb(228,170,130)"></rect><rect x="99" y="41" width="8" height="14" fill="rgb(231,176,134)"></rect><rect x="91" y="41" width="8" height="14" fill="rgb(249,233,175)"></rect><rect x="82" y="41" width="9" height="14" fill="rgb(245,219,165)"></rect><rect x="74" y="41" width="8" height="14" fill="rgb(220,145,112)"></rect><rect x="66" y="41" width="8" height="14" fill="rgb(242,210,159)"></rect><rect x="58" y="41" width="8" height="14" fill="rgb(245,222,167)"></rect><rect x="49" y="41" width="9" height="14" fill="rgb(224,228,191)"></rect><rect x="41" y="41" width="8" height="14" fill="rgb(241,240,189)"></rect><rect x="33" y="41" width="8" height="14" fill="rgb(237,197,149)"></rect><rect x="25" y="41" width="8" height="14" fill="rgb(234,185,141)"></rect><rect x="16" y="41" width="9" height="14" fill="rgb(239,201,152)"></rect><rect x="8" y="41" width="8" height="14" fill="rgb(248,231,173)"></rect><rect x="0" y="41" width="8" height="14" fill="rgb(236,237,190)"></rect><rect x="239" y="28" width="8" height="13" fill="rgb(116,147,201)"></rect><rect x="231" y="28" width="8" height="13" fill="rgb(154,175,197)"></rect><rect x="222" y="28" width="9" height="13" fill="rgb(170,187,196)"></rect><rect x="214" y="28" width="8" height="13" fill="rgb(149,172,198)"></rect><rect x="206" y="28" width="8" height="13" fill="rgb(205,214,193)"></rect><rect x="198" y="28" width="8" height="13" fill="rgb(201,211,193)"></rect><rect x="189" y="28" width="9" height="13" fill="rgb(162,181,197)"></rect><rect x="181" y="28" width="8" height="13" fill="rgb(133,160,199)"></rect><rect x="173" y="28" width="8" height="13" fill="rgb(125,153,200)"></rect><rect x="165" y="28" width="8" height="13" fill="rgb(147,170,198)"></rect><rect x="156" y="28" width="9" height="13" fill="rgb(209,217,192)"></rect><rect x="148" y="28" width="8" height="13" fill="rgb(248,228,172)"></rect><rect x="140" y="28" width="8" height="13" fill="rgb(226,229,191)"></rect><rect x="132" y="28" width="8" height="13" fill="rgb(241,240,189)"></rect><rect x="124" y="28" width="8" height="13" fill="rgb(225,158,121)"></rect><rect x="115" y="28" width="9" height="13" fill="rgb(228,170,130)"></rect><rect x="107" y="28" width="8" height="13" fill="rgb(239,201,152)"></rect><rect x="99" y="28" width="8" height="13" fill="rgb(237,194,147)"></rect><rect x="91" y="28" width="8" height="13" fill="rgb(249,246,189)"></rect><rect x="82" y="28" width="9" height="13" fill="rgb(253,244,183)"></rect><rect x="74" y="28" width="8" height="13" fill="rgb(226,161,123)"></rect><rect x="66" y="28" width="8" height="13" fill="rgb(245,222,167)"></rect><rect x="58" y="28" width="8" height="13" fill="rgb(254,246,185)"></rect><rect x="49" y="28" width="9" height="13" fill="rgb(247,245,189)"></rect><rect x="41" y="28" width="8" height="13" fill="rgb(232,234,190)"></rect><rect x="33" y="28" width="8" height="13" fill="rgb(255,251,188)"></rect><rect x="25" y="28" width="8" height="13" fill="rgb(242,210,159)"></rect><rect x="16" y="28" width="9" height="13" fill="rgb(249,233,175)"></rect><rect x="8" y="28" width="8" height="13" fill="rgb(253,249,188)"></rect><rect x="0" y="28" width="8" height="13" fill="rgb(222,226,191)"></rect><rect x="239" y="14" width="8" height="14" fill="rgb(100,135,202)"></rect><rect x="231" y="14" width="8" height="14" fill="rgb(131,158,199)"></rect><rect x="222" y="14" width="9" height="14" fill="rgb(156,177,197)"></rect><rect x="214" y="14" width="8" height="14" fill="rgb(129,156,200)"></rect><rect x="206" y="14" width="8" height="14" fill="rgb(185,198,194)"></rect><rect x="198" y="14" width="8" height="14" fill="rgb(199,209,193)"></rect><rect x="189" y="14" width="9" height="14" fill="rgb(145,169,198)"></rect><rect x="181" y="14" width="8" height="14" fill="rgb(102,136,202)"></rect><rect x="173" y="14" width="8" height="14" fill="rgb(98,133,202)"></rect><rect x="165" y="14" width="8" height="14" fill="rgb(123,152,200)"></rect><rect x="156" y="14" width="9" height="14" fill="rgb(201,211,193)"></rect><rect x="148" y="14" width="8" height="14" fill="rgb(218,223,191)"></rect><rect x="140" y="14" width="8" height="14" fill="rgb(189,201,194)"></rect><rect x="132" y="14" width="8" height="14" fill="rgb(240,203,154)"></rect><rect x="124" y="14" width="8" height="14" fill="rgb(231,176,134)"></rect><rect x="115" y="14" width="9" height="14" fill="rgb(223,151,117)"></rect><rect x="107" y="14" width="8" height="14" fill="rgb(247,226,170)"></rect><rect x="99" y="14" width="8" height="14" fill="rgb(251,240,180)"></rect><rect x="91" y="14" width="8" height="14" fill="rgb(241,240,189)"></rect><rect x="82" y="14" width="9" height="14" fill="rgb(220,225,191)"></rect><rect x="74" y="14" width="8" height="14" fill="rgb(231,179,136)"></rect><rect x="66" y="14" width="8" height="14" fill="rgb(248,231,173)"></rect><rect x="58" y="14" width="8" height="14" fill="rgb(249,233,175)"></rect><rect x="49" y="14" width="9" height="14" fill="rgb(241,240,189)"></rect><rect x="41" y="14" width="8" height="14" fill="rgb(222,226,191)"></rect><rect x="33" y="14" width="8" height="14" fill="rgb(222,226,191)"></rect><rect x="25" y="14" width="8" height="14" fill="rgb(248,231,173)"></rect><rect x="16" y="14" width="9" height="14" fill="rgb(247,245,189)"></rect><rect x="8" y="14" width="8" height="14" fill="rgb(251,248,188)"></rect><rect x="0" y="14" width="8" height="14" fill="rgb(218,223,191)"></rect><rect x="239" y="0" width="8" height="14" fill="rgb(87,125,203)"></rect><rect x="231" y="0" width="8" height="14" fill="rgb(131,158,199)"></rect><rect x="222" y="0" width="9" height="14" fill="rgb(143,167,198)"></rect><rect x="214" y="0" width="8" height="14" fill="rgb(114,146,201)"></rect><rect x="206" y="0" width="8" height="14" fill="rgb(207,215,192)"></rect><rect x="198" y="0" width="8" height="14" fill="rgb(197,208,193)"></rect><rect x="189" y="0" width="9" height="14" fill="rgb(114,146,201)"></rect><rect x="181" y="0" width="8" height="14" fill="rgb(100,135,202)"></rect><rect x="173" y="0" width="8" height="14" fill="rgb(87,125,203)"></rect><rect x="165" y="0" width="8" height="14" fill="rgb(110,143,201)"></rect><rect x="156" y="0" width="9" height="14" fill="rgb(185,198,194)"></rect><rect x="148" y="0" width="8" height="14" fill="rgb(199,209,193)"></rect><rect x="140" y="0" width="8" height="14" fill="rgb(187,200,194)"></rect><rect x="132" y="0" width="8" height="14" fill="rgb(213,122,95)"></rect><rect x="124" y="0" width="8" height="14" fill="rgb(229,172,131)"></rect><rect x="115" y="0" width="9" height="14" fill="rgb(234,185,141)"></rect><rect x="107" y="0" width="8" height="14" fill="rgb(253,249,188)"></rect><rect x="99" y="0" width="8" height="14" fill="rgb(255,251,188)"></rect><rect x="91" y="0" width="8" height="14" fill="rgb(232,234,190)"></rect><rect x="82" y="0" width="9" height="14" fill="rgb(228,231,190)"></rect><rect x="74" y="0" width="8" height="14" fill="rgb(234,185,141)"></rect><rect x="66" y="0" width="8" height="14" fill="rgb(249,233,175)"></rect><rect x="58" y="0" width="8" height="14" fill="rgb(250,235,177)"></rect><rect x="49" y="0" width="9" height="14" fill="rgb(226,229,191)"></rect><rect x="41" y="0" width="8" height="14" fill="rgb(218,223,191)"></rect><rect x="33" y="0" width="8" height="14" fill="rgb(193,205,194)"></rect><rect x="25" y="0" width="8" height="14" fill="rgb(222,226,191)"></rect><rect x="16" y="0" width="9" height="14" fill="rgb(236,237,190)"></rect><rect x="8" y="0" width="8" height="14" fill="rgb(236,237,190)"></rect><rect x="0" y="0" width="8" height="14" fill="rgb(222,226,191)"></rect></g><g class="highcharts-markers highcharts-tracker" visibility="visible" zIndex="0.1" transform="translate(390,306) rotate(90) scale(-1,1) scale(1 1)" style="" width="330" height="247" clip-path="none"></g></g><text x="10" text-anchor="start" class="highcharts-title" zIndex="4" style="color:#333333;font-size:18px;fill:#333333;width:336px;" y="24"><tspan>Highcharts heat map study</tspan></text><text x="10" text-anchor="start" class="highcharts-subtitle" zIndex="4" style="color:#555555;fill:#555555;width:336px;" y="44"><tspan>Temperature variation by day and hour through April 2013</tspan></text><g class="highcharts-legend" zIndex="7" transform="translate(93,338)"><g zIndex="1"><g><g class="highcharts-legend-item" zIndex="1" transform="translate(8,3)"><rect x="0" y="4" width="200" height="12" zIndex="1" fill="url(#highcharts-1)"></rect><g class="highcharts-grid" zIndex="1"><path fill="none" d="M -0.5 4 L -0.5 16" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 49.5 4 L 49.5 16" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 99.5 4 L 99.5 16" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 149.5 4 L 149.5 16" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path><path fill="none" d="M 200.5 4 L 200.5 16" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"></path></g><text x="21" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2" y="15"></text><g class="highcharts-axis" zIndex="2"><path fill="none" d="M -0.5 16 L -0.5 21" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 49.5 16 L 49.5 21" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 99.5 16 L 99.5 21" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 149.5 16 L 149.5 21" stroke="#C0D0E0" stroke-width="1" opacity="1"></path><path fill="none" d="M 200.5 16 L 200.5 21" stroke="#C0D0E0" stroke-width="1" opacity="1"></path></g><path fill="gray" d="M 59 -2 L 67 -2 63 4 Z" stroke="gray" stroke-width="0.01" zIndex="2" visibility="hidden"></path><g class="highcharts-axis-labels highcharts-coloraxis-labels" zIndex="7"><text x="4.890625" style="color:#606060;cursor:default;font-size:11px;fill:#606060;" text-anchor="middle" transform="translate(0,0)" y="35" opacity="1">-5</text><text x="50" style="color:#606060;cursor:default;font-size:11px;fill:#606060;" text-anchor="middle" transform="translate(0,0)" y="35" opacity="1">0</text><text x="100" style="color:#606060;cursor:default;font-size:11px;fill:#606060;" text-anchor="middle" transform="translate(0,0)" y="35" opacity="1">5</text><text x="150" style="color:#606060;cursor:default;font-size:11px;fill:#606060;" text-anchor="middle" transform="translate(0,0)" y="35" opacity="1">10</text><text x="193.875" style="color:#606060;cursor:default;font-size:11px;fill:#606060;" text-anchor="middle" transform="translate(0,0)" y="35" opacity="1">15</text></g></g></g></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7"><text x="45" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:122px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="68" opacity="1"><tspan>1. Apr</tspan></text><text x="45" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:122px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="126" opacity="1"><tspan>8. Apr</tspan></text><text x="45" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:122px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="183" opacity="1"><tspan>15. Apr</tspan></text><text x="45" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:122px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="241" opacity="1"><tspan>22. Apr</tspan></text><text x="45" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:122px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="299" opacity="1"><tspan>29. Apr</tspan></text></g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7"><text x="66.875" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:110;text-overflow:ellipsis;" text-anchor="middle" transform="translate(0,0)" y="325" opacity="1"><tspan>0:00</tspan></text><text x="149.375" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:110;text-overflow:ellipsis;" text-anchor="middle" transform="translate(0,0)" y="325" opacity="1"><tspan>6:00</tspan></text><text x="231.875" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:110;text-overflow:ellipsis;" text-anchor="middle" transform="translate(0,0)" y="325" opacity="1"><tspan>12:00</tspan></text><text x="314.375" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:110;text-overflow:ellipsis;" text-anchor="middle" transform="translate(0,0)" y="325" opacity="1"><tspan>18:00</tspan></text></g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;white-space:nowrap;" transform="translate(83,-9999)" opacity="0" visibility="visible"><path fill="none" d="M 3.5 0.5 L 149.5 0.5 C 152.5 0.5 152.5 0.5 152.5 3.5 L 152.5 42.5 C 152.5 45.5 152.5 45.5 149.5 45.5 L 3.5 45.5 C 0.5 45.5 0.5 45.5 0.5 42.5 L 0.5 28 -5.5 22 0.5 16 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)" width="152" height="45"></path><path fill="none" d="M 3.5 0.5 L 149.5 0.5 C 152.5 0.5 152.5 0.5 152.5 3.5 L 152.5 42.5 C 152.5 45.5 152.5 45.5 149.5 45.5 L 3.5 45.5 C 0.5 45.5 0.5 45.5 0.5 42.5 L 0.5 28 -5.5 22 0.5 16 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)" width="152" height="45"></path><path fill="none" d="M 3.5 0.5 L 149.5 0.5 C 152.5 0.5 152.5 0.5 152.5 3.5 L 152.5 42.5 C 152.5 45.5 152.5 45.5 149.5 45.5 L 3.5 45.5 C 0.5 45.5 0.5 45.5 0.5 42.5 L 0.5 28 -5.5 22 0.5 16 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)" width="152" height="45"></path><path fill="rgba(249, 249, 249, .85)" d="M 3.5 0.5 L 149.5 0.5 C 152.5 0.5 152.5 0.5 152.5 3.5 L 152.5 42.5 C 152.5 45.5 152.5 45.5 149.5 45.5 L 3.5 45.5 C 0.5 45.5 0.5 45.5 0.5 42.5 L 0.5 28 -5.5 22 0.5 16 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="rgb(178,194,195)" stroke-width="1"></path><text x="8" zIndex="1" style="font-size:12px;color:#333333;fill:#333333;" y="20"><tspan>Temperature</tspan><tspan x="8" dy="15">14 Apr, 2013 0:00: </tspan><tspan style="font-weight:bold" dx="0">1.3 ℃</tspan></text></g><text x="390" text-anchor="end" zIndex="8" style="cursor:pointer;color:#909090;font-size:9px;fill:#909090;" y="395">Highcharts.com<title>undefined</title></text><path fill="none" d="M 191 59 L 191 306" stroke="#FF0000" stroke-width="2" zIndex="10"></path></svg></div></div>
+
+<pre id="_csv" style="display: none">Date, Time, Temperature
+2013-04-01,0,-0.7
+2013-04-02,0,-3.4
+2013-04-03,0,-1.1</pre>
+
+<pre id="csv" style="display: none">Date, Time, Temperature
+2013-04-01,0,-0.7
+2013-04-02,0,-3.4
+2013-04-03,0,-1.1
+2013-04-04,0,-0.1
+2013-04-05,0,-2.0
+2013-04-06,0,2.6
+2013-04-07,0,1.9
+2013-04-08,0,-2.2
+2013-04-09,0,-3.2
+2013-04-10,0,-3.5
+2013-04-11,0,-1.8
+2013-04-12,0,1.6
+2013-04-13,0,1.7
+2013-04-14,0,1.3
+2013-04-15,0,10.8
+2013-04-16,0,8.6
+2013-04-17,0,7.0
+2013-04-18,0,4.1
+2013-04-19,0,4.8
+2013-04-20,0,3.5
+2013-04-21,0,4.0
+2013-04-22,0,7.5
+2013-04-23,0,6.0
+2013-04-24,0,4.4
+2013-04-25,0,4.3
+2013-04-26,0,3.0
+2013-04-27,0,1.3
+2013-04-28,0,2.8
+2013-04-29,0,3.5
+2013-04-30,0,3.6
+2013-04-01,1,-0.7
+2013-04-02,1,-3.4
+2013-04-03,1,-1.5
+2013-04-04,1,-0.7
+2013-04-05,1,-3.0
+2013-04-06,1,2.2
+2013-04-07,1,0.2
+2013-04-08,1,-2.3
+2013-04-09,1,-3.6
+2013-04-10,1,-4.2
+2013-04-11,1,-1.6
+2013-04-12,1,1.2
+2013-04-13,1,1.9
+2013-04-14,1,0.1
+2013-04-15,1,9.5
+2013-04-16,1,8.9
+2013-04-17,1,7.5
+2013-04-18,1,4.1
+2013-04-19,1,4.7
+2013-04-20,1,2.9
+2013-04-21,1,3.9
+2013-04-22,1,7.5
+2013-04-23,1,5.9
+2013-04-24,1,4.9
+2013-04-25,1,4.0
+2013-04-26,1,2.7
+2013-04-27,1,1.0
+2013-04-28,1,2.4
+2013-04-29,1,3.2
+2013-04-30,1,4.1
+2013-04-01,2,-0.9
+2013-04-02,2,-3.7
+2013-04-03,2,-1.7
+2013-04-04,2,-1.1
+2013-04-05,2,-3.2
+2013-04-06,2,2.0
+2013-04-07,2,-1.6
+2013-04-08,2,-3.1
+2013-04-09,2,-3.6
+2013-04-10,2,-3.9
+2013-04-11,2,-2.6
+2013-04-12,2,0.9
+2013-04-13,2,1.2
+2013-04-14,2,-0.2
+2013-04-15,2,8.7
+2013-04-16,2,8.0
+2013-04-17,2,7.1
+2013-04-18,2,4.2
+2013-04-19,2,4.5
+2013-04-20,2,3.2
+2013-04-21,2,3.8
+2013-04-22,2,7.5
+2013-04-23,2,6.2
+2013-04-24,2,5.8
+2013-04-25,2,3.6
+2013-04-26,2,2.7
+2013-04-27,2,0.8
+2013-04-28,2,3.0
+2013-04-29,2,3.2
+2013-04-30,2,3.8
+2013-04-01,3,-1.4
+2013-04-02,3,-4.0
+2013-04-03,3,-2.0
+2013-04-04,3,-2.2
+2013-04-05,3,-3.1
+2013-04-06,3,1.3
+2013-04-07,3,-1.2
+2013-04-08,3,-3.4
+2013-04-09,3,-4.2
+2013-04-10,3,-4.3
+2013-04-11,3,-2.8
+2013-04-12,3,0.9
+2013-04-13,3,0.8
+2013-04-14,3,-0.4
+2013-04-15,3,6.1
+2013-04-16,3,7.9
+2013-04-17,3,7.2
+2013-04-18,3,3.8
+2013-04-19,3,4.6
+2013-04-20,3,2.0
+2013-04-21,3,3.8
+2013-04-22,3,7.3
+2013-04-23,3,5.7
+2013-04-24,3,5.1
+2013-04-25,3,3.4
+2013-04-26,3,2.7
+2013-04-27,3,0.6
+2013-04-28,3,4.0
+2013-04-29,3,3.2
+2013-04-30,3,3.4
+2013-04-01,4,-1.1
+2013-04-02,4,-4.2
+2013-04-03,4,-2.8
+2013-04-04,4,-2.4
+2013-04-05,4,-3.3
+2013-04-06,4,1.0
+2013-04-07,4,-1.5
+2013-04-08,4,-3.3
+2013-04-09,4,-4.6
+2013-04-10,4,-4.5
+2013-04-11,4,-2.9
+2013-04-12,4,0.8
+2013-04-13,4,-0.9
+2013-04-14,4,-0.6
+2013-04-15,4,5.3
+2013-04-16,4,8.2
+2013-04-17,4,7.4
+2013-04-18,4,3.4
+2013-04-19,4,4.7
+2013-04-20,4,1.8
+2013-04-21,4,3.8
+2013-04-22,4,6.3
+2013-04-23,4,5.2
+2013-04-24,4,4.1
+2013-04-25,4,3.7
+2013-04-26,4,2.4
+2013-04-27,4,0.7
+2013-04-28,4,4.1
+2013-04-29,4,2.9
+2013-04-30,4,3.8
+2013-04-01,5,-1.3
+2013-04-02,5,-4.7
+2013-04-03,5,-2.7
+2013-04-04,5,-2.8
+2013-04-05,5,-3.8
+2013-04-06,5,0.6
+2013-04-07,5,-1.5
+2013-04-08,5,-3.8
+2013-04-09,5,-5.0
+2013-04-10,5,-5.2
+2013-04-11,5,-3.0
+2013-04-12,5,0.5
+2013-04-13,5,-1.8
+2013-04-14,5,0.1
+2013-04-15,5,5.0
+2013-04-16,5,5.9
+2013-04-17,5,7.8
+2013-04-18,5,3.4
+2013-04-19,5,6.1
+2013-04-20,5,1.6
+2013-04-21,5,4.1
+2013-04-22,5,5.5
+2013-04-23,5,5.9
+2013-04-24,5,5.4
+2013-04-25,5,3.5
+2013-04-26,5,2.1
+2013-04-27,5,1.3
+2013-04-28,5,4.4
+2013-04-29,5,2.6
+2013-04-30,5,3.0
+2013-04-01,6,-1.5
+2013-04-02,6,-4.1
+2013-04-03,6,-3.0
+2013-04-04,6,-2.7
+2013-04-05,6,-4.4
+2013-04-06,6,0.6
+2013-04-07,6,-1.3
+2013-04-08,6,-4.3
+2013-04-09,6,-5.2
+2013-04-10,6,-5.7
+2013-04-11,6,-3.2
+2013-04-12,6,0.3
+2013-04-13,6,-1.2
+2013-04-14,6,0.1
+2013-04-15,6,5.0
+2013-04-16,6,4.9
+2013-04-17,6,7.8
+2013-04-18,6,3.3
+2013-04-19,6,5.8
+2013-04-20,6,1.7
+2013-04-21,6,3.9
+2013-04-22,6,4.8
+2013-04-23,6,6.1
+2013-04-24,6,5.6
+2013-04-25,6,3.5
+2013-04-26,6,2.1
+2013-04-27,6,1.3
+2013-04-28,6,4.6
+2013-04-29,6,2.3
+2013-04-30,6,2.9
+2013-04-01,7,-2.3
+2013-04-02,7,-4.5
+2013-04-03,7,-3.8
+2013-04-04,7,-3.4
+2013-04-05,7,-3.9
+2013-04-06,7,0.1
+2013-04-07,7,-1.4
+2013-04-08,7,-4.3
+2013-04-09,7,-5.4
+2013-04-10,7,-5.8
+2013-04-11,7,-3.5
+2013-04-12,7,1.0
+2013-04-13,7,-1.5
+2013-04-14,7,0.7
+2013-04-15,7,5.0
+2013-04-16,7,4.0
+2013-04-17,7,7.5
+2013-04-18,7,3.3
+2013-04-19,7,5.9
+2013-04-20,7,1.8
+2013-04-21,7,3.7
+2013-04-22,7,4.8
+2013-04-23,7,5.9
+2013-04-24,7,5.5
+2013-04-25,7,4.0
+2013-04-26,7,2.2
+2013-04-27,7,1.3
+2013-04-28,7,4.8
+2013-04-29,7,2.7
+2013-04-30,7,3.1
+2013-04-01,8,-2.6
+2013-04-02,8,-4.3
+2013-04-03,8,-3.1
+2013-04-04,8,-3.2
+2013-04-05,8,-4.1
+2013-04-06,8,-0.5
+2013-04-07,8,-2.3
+2013-04-08,8,-4.3
+2013-04-09,8,-5.2
+2013-04-10,8,-4.9
+2013-04-11,8,-3.1
+2013-04-12,8,1.2
+2013-04-13,8,0.0
+2013-04-14,8,1.6
+2013-04-15,8,5.0
+2013-04-16,8,4.8
+2013-04-17,8,7.1
+2013-04-18,8,3.8
+2013-04-19,8,5.8
+2013-04-20,8,3.2
+2013-04-21,8,5.7
+2013-04-22,8,5.8
+2013-04-23,8,6.2
+2013-04-24,8,5.2
+2013-04-25,8,4.2
+2013-04-26,8,2.7
+2013-04-27,8,1.3
+2013-04-28,8,4.8
+2013-04-29,8,3.1
+2013-04-30,8,3.7
+2013-04-01,9,-2.9
+2013-04-02,9,-4.3
+2013-04-03,9,-3.0
+2013-04-04,9,-2.6
+2013-04-05,9,-3.5
+2013-04-06,9,0.1
+2013-04-07,9,3.4
+2013-04-08,9,-3.7
+2013-04-09,9,-4.2
+2013-04-10,9,-4.1
+2013-04-11,9,-1.5
+2013-04-12,9,2.3
+2013-04-13,9,1.5
+2013-04-14,9,3.0
+2013-04-15,9,5.7
+2013-04-16,9,6.2
+2013-04-17,9,7.0
+2013-04-18,9,4.1
+2013-04-19,9,5.4
+2013-04-20,9,4.4
+2013-04-21,9,6.2
+2013-04-22,9,6.5
+2013-04-23,9,6.4
+2013-04-24,9,5.6
+2013-04-25,9,4.5
+2013-04-26,9,3.1
+2013-04-27,9,2.8
+2013-04-28,9,5.2
+2013-04-29,9,3.6
+2013-04-30,9,4.2
+2013-04-01,10,-1.8
+2013-04-02,10,-2.3
+2013-04-03,10,-0.5
+2013-04-04,10,0.1
+2013-04-05,10,-0.9
+2013-04-06,10,1.2
+2013-04-07,10,4.7
+2013-04-08,10,-1.4
+2013-04-09,10,-1.0
+2013-04-10,10,-0.9
+2013-04-11,10,1.3
+2013-04-12,10,4.2
+2013-04-13,10,3.2
+2013-04-14,10,4.0
+2013-04-15,10,6.5
+2013-04-16,10,6.9
+2013-04-17,10,7.0
+2013-04-18,10,4.8
+2013-04-19,10,5.4
+2013-04-20,10,4.9
+2013-04-21,10,7.1
+2013-04-22,10,7.6
+2013-04-23,10,7.4
+2013-04-24,10,5.7
+2013-04-25,10,5.4
+2013-04-26,10,3.6
+2013-04-27,10,5.4
+2013-04-28,10,5.4
+2013-04-29,10,4.3
+2013-04-30,10,4.6
+2013-04-01,11,-0.3
+2013-04-02,11,0.3
+2013-04-03,11,2.5
+2013-04-04,11,2.1
+2013-04-05,11,2.0
+2013-04-06,11,1.5
+2013-04-07,11,1.6
+2013-04-08,11,0.8
+2013-04-09,11,0.8
+2013-04-10,11,1.1
+2013-04-11,11,3.1
+2013-04-12,11,5.0
+2013-04-13,11,5.5
+2013-04-14,11,5.2
+2013-04-15,11,10.2
+2013-04-16,11,7.5
+2013-04-17,11,7.5
+2013-04-18,11,5.2
+2013-04-19,11,5.3
+2013-04-20,11,5.1
+2013-04-21,11,8.8
+2013-04-22,11,7.8
+2013-04-23,11,7.1
+2013-04-24,11,4.6
+2013-04-25,11,5.4
+2013-04-26,11,4.6
+2013-04-27,11,6.4
+2013-04-28,11,5.5
+2013-04-29,11,6.1
+2013-04-30,11,6.0
+2013-04-01,12,1.0
+2013-04-02,12,1.7
+2013-04-03,12,3.8
+2013-04-04,12,3.4
+2013-04-05,12,
+2013-04-06,12,2.5
+2013-04-07,12,2.4
+2013-04-08,12,1.8
+2013-04-09,12,1.6
+2013-04-10,12,2.5
+2013-04-11,12,4.6
+2013-04-12,12,6.9
+2013-04-13,12,6.2
+2013-04-14,12,4.7
+2013-04-15,12,11.3
+2013-04-16,12,7.9
+2013-04-17,12,8.8
+2013-04-18,12,5.3
+2013-04-19,12,5.9
+2013-04-20,12,5.5
+2013-04-21,12,9.7
+2013-04-22,12,7.7
+2013-04-23,12,7.2
+2013-04-24,12,3.9
+2013-04-25,12,6.4
+2013-04-26,12,5.3
+2013-04-27,12,7.0
+2013-04-28,12,6.3
+2013-04-29,12,6.3
+2013-04-30,12,5.6
+2013-04-01,13,1.8
+2013-04-02,13,3.0
+2013-04-03,13,4.8
+2013-04-04,13,4.4
+2013-04-05,13,4.0
+2013-04-06,13,2.8
+2013-04-07,13,2.6
+2013-04-08,13,3.2
+2013-04-09,13,3.5
+2013-04-10,13,3.9
+2013-04-11,13,5.5
+2013-04-12,13,7.4
+2013-04-13,13,6.9
+2013-04-14,13,4.0
+2013-04-15,13,11.5
+2013-04-16,13,8.4
+2013-04-17,13,9.1
+2013-04-18,13,7.7
+2013-04-19,13,5.7
+2013-04-20,13,6.5
+2013-04-21,13,10.2
+2013-04-22,13,7.7
+2013-04-23,13,6.2
+2013-04-24,13,4.4
+2013-04-25,13,5.4
+2013-04-26,13,6.7
+2013-04-27,13,8.4
+2013-04-28,13,7.3
+2013-04-29,13,7.2
+2013-04-30,13,6.0
+2013-04-01,14,3.2
+2013-04-02,14,3.4
+2013-04-03,14,5.3
+2013-04-04,14,5.0
+2013-04-05,14,4.8
+2013-04-06,14,3.9
+2013-04-07,14,3.3
+2013-04-08,14,4.1
+2013-04-09,14,3.9
+2013-04-10,14,4.2
+2013-04-11,14,5.7
+2013-04-12,14,7.8
+2013-04-13,14,9.1
+2013-04-14,14,4.1
+2013-04-15,14,12.3
+2013-04-16,14,8.2
+2013-04-17,14,10.6
+2013-04-18,14,8.7
+2013-04-19,14,5.3
+2013-04-20,14,7.3
+2013-04-21,14,11.2
+2013-04-22,14,8.5
+2013-04-23,14,8.2
+2013-04-24,14,4.3
+2013-04-25,14,6.0
+2013-04-26,14,6.9
+2013-04-27,14,8.1
+2013-04-28,14,7.9
+2013-04-29,14,9.3
+2013-04-30,14,6.5
+2013-04-01,15,3.5
+2013-04-02,15,4.4
+2013-04-03,15,6.4
+2013-04-04,15,5.3
+2013-04-05,15,5.3
+2013-04-06,15,3.8
+2013-04-07,15,3.4
+2013-04-08,15,4.8
+2013-04-09,15,4.3
+2013-04-10,15,4.6
+2013-04-11,15,5.9
+2013-04-12,15,8.7
+2013-04-13,15,10.0
+2013-04-14,15,4.1
+2013-04-15,15,12.9
+2013-04-16,15,8.8
+2013-04-17,15,10.8
+2013-04-18,15,7.8
+2013-04-19,15,4.8
+2013-04-20,15,7.1
+2013-04-21,15,11.6
+2013-04-22,15,8.4
+2013-04-23,15,8.4
+2013-04-24,15,6.2
+2013-04-25,15,7.1
+2013-04-26,15,5.7
+2013-04-27,15,7.7
+2013-04-28,15,7.7
+2013-04-29,15,10.6
+2013-04-30,15,7.4
+2013-04-01,16,3.9
+2013-04-02,16,5.3
+2013-04-03,16,5.9
+2013-04-04,16,5.8
+2013-04-05,16,5.7
+2013-04-06,16,4.3
+2013-04-07,16,4.2
+2013-04-08,16,5.3
+2013-04-09,16,4.5
+2013-04-10,16,4.4
+2013-04-11,16,6.2
+2013-04-12,16,8.8
+2013-04-13,16,9.9
+2013-04-14,16,4.3
+2013-04-15,16,12.4
+2013-04-16,16,9.8
+2013-04-17,16,11.4
+2013-04-18,16,8.3
+2013-04-19,16,4.2
+2013-04-20,16,7.3
+2013-04-21,16,11.7
+2013-04-22,16,7.8
+2013-04-23,16,5.3
+2013-04-24,16,5.4
+2013-04-25,16,6.9
+2013-04-26,16,8.5
+2013-04-27,16,10.3
+2013-04-28,16,7.3
+2013-04-29,16,10.3
+2013-04-30,16,5.5
+2013-04-01,17,3.8
+2013-04-02,17,5.1
+2013-04-03,17,6.7
+2013-04-04,17,7.2
+2013-04-05,17,6.1
+2013-04-06,17,4.0
+2013-04-07,17,4.6
+2013-04-08,17,5.3
+2013-04-09,17,4.8
+2013-04-10,17,5.2
+2013-04-11,17,6.0
+2013-04-12,17,
+2013-04-13,17,9.9
+2013-04-14,17,4.3
+2013-04-15,17,11.0
+2013-04-16,17,11.2
+2013-04-17,17,10.3
+2013-04-18,17,9.3
+2013-04-19,17,4.1
+2013-04-20,17,7.2
+2013-04-21,17,11.9
+2013-04-22,17,7.5
+2013-04-23,17,5.9
+2013-04-24,17,4.0
+2013-04-25,17,6.5
+2013-04-26,17,9.4
+2013-04-27,17,10.1
+2013-04-28,17,8.7
+2013-04-29,17,9.3
+2013-04-30,17,4.8
+2013-04-01,18,4.1
+2013-04-02,18,5.7
+2013-04-03,18,6.9
+2013-04-04,18,7.2
+2013-04-05,18,6.4
+2013-04-06,18,4.2
+2013-04-07,18,4.7
+2013-04-08,18,4.9
+2013-04-09,18,5.2
+2013-04-10,18,5.3
+2013-04-11,18,5.9
+2013-04-12,18,7.8
+2013-04-13,18,9.7
+2013-04-14,18,4.1
+2013-04-15,18,10.9
+2013-04-16,18,10.9
+2013-04-17,18,9.8
+2013-04-18,18,8.9
+2013-04-19,18,4.2
+2013-04-20,18,6.9
+2013-04-21,18,11.7
+2013-04-22,18,6.6
+2013-04-23,18,4.6
+2013-04-24,18,4.4
+2013-04-25,18,5.5
+2013-04-26,18,9.6
+2013-04-27,18,10.1
+2013-04-28,18,8.8
+2013-04-29,18,8.1
+2013-04-30,18,4.9
+2013-04-01,19,3.2
+2013-04-02,19,4.6
+2013-04-03,19,5.8
+2013-04-04,19,6.0
+2013-04-05,19,5.0
+2013-04-06,19,3.8
+2013-04-07,19,3.8
+2013-04-08,19,4.7
+2013-04-09,19,4.4
+2013-04-10,19,4.8
+2013-04-11,19,5.4
+2013-04-12,19,7.9
+2013-04-13,19,8.9
+2013-04-14,19,4.3
+2013-04-15,19,10.3
+2013-04-16,19,9.6
+2013-04-17,19,9.6
+2013-04-18,19,8.8
+2013-04-19,19,5.6
+2013-04-20,19,6.6
+2013-04-21,19,10.7
+2013-04-22,19,6.9
+2013-04-23,19,5.7
+2013-04-24,19,3.5
+2013-04-25,19,5.1
+2013-04-26,19,9.4
+2013-04-27,19,9.7
+2013-04-28,19,7.5
+2013-04-29,19,7.1
+2013-04-30,19,5.1
+2013-04-01,20,0.0
+2013-04-02,20,1.4
+2013-04-03,20,2.1
+2013-04-04,20,2.4
+2013-04-05,20,2.1
+2013-04-06,20,2.8
+2013-04-07,20,2.3
+2013-04-08,20,1.3
+2013-04-09,20,0.6
+2013-04-10,20,1.9
+2013-04-11,20,4.5
+2013-04-12,20,7.0
+2013-04-13,20,7.2
+2013-04-14,20,4.3
+2013-04-15,20,9.4
+2013-04-16,20,8.9
+2013-04-17,20,8.6
+2013-04-18,20,8.3
+2013-04-19,20,5.8
+2013-04-20,20,6.4
+2013-04-21,20,9.7
+2013-04-22,20,6.8
+2013-04-23,20,6.3
+2013-04-24,20,3.5
+2013-04-25,20,4.3
+2013-04-26,20,7.4
+2013-04-27,20,7.9
+2013-04-28,20,7.2
+2013-04-29,20,5.9
+2013-04-30,20,4.1
+2013-04-01,21,-1.7
+2013-04-02,21,0.1
+2013-04-03,21,0.9
+2013-04-04,21,-0.1
+2013-04-05,21,2.6
+2013-04-06,21,2.4
+2013-04-07,21,0.5
+2013-04-08,21,-0.9
+2013-04-09,21,-1.3
+2013-04-10,21,-0.2
+2013-04-11,21,2.8
+2013-04-12,21,6.0
+2013-04-13,21,3.6
+2013-04-14,21,4.3
+2013-04-15,21,9.1
+2013-04-16,21,8.6
+2013-04-17,21,7.2
+2013-04-18,21,7.5
+2013-04-19,21,4.7
+2013-04-20,21,5.3
+2013-04-21,21,9.0
+2013-04-22,21,6.3
+2013-04-23,21,5.2
+2013-04-24,21,4.6
+2013-04-25,21,3.9
+2013-04-26,21,5.0
+2013-04-27,21,6.8
+2013-04-28,21,5.8
+2013-04-29,21,4.9
+2013-04-30,21,3.4
+2013-04-01,22,-2.5
+2013-04-02,22,-1.0
+2013-04-03,22,0.2
+2013-04-04,22,-1.1
+2013-04-05,22,1.6
+2013-04-06,22,2.3
+2013-04-07,22,-0.3
+2013-04-08,22,-2.4
+2013-04-09,22,-2.6
+2013-04-10,22,-1.4
+2013-04-11,22,2.4
+2013-04-12,22,3.2
+2013-04-13,22,1.8
+2013-04-14,22,7.1
+2013-04-15,22,8.3
+2013-04-16,22,9.4
+2013-04-17,22,6.1
+2013-04-18,22,5.5
+2013-04-19,22,4.3
+2013-04-20,22,3.3
+2013-04-21,22,8.2
+2013-04-22,22,5.9
+2013-04-23,22,5.8
+2013-04-24,22,4.3
+2013-04-25,22,3.4
+2013-04-26,22,3.4
+2013-04-27,22,5.9
+2013-04-28,22,4.6
+2013-04-29,22,4.8
+2013-04-30,22,3.2
+2013-04-01,23,-3.1
+2013-04-02,23,-1.0
+2013-04-03,23,-0.4
+2013-04-04,23,-1.8
+2013-04-05,23,2.7
+2013-04-06,23,2.2
+2013-04-07,23,-1.8
+2013-04-08,23,-2.5
+2013-04-09,23,-3.1
+2013-04-10,23,-2.0
+2013-04-11,23,1.6
+2013-04-12,23,2.3
+2013-04-13,23,1.7
+2013-04-14,23,10.7
+2013-04-15,23,8.5
+2013-04-16,23,7.9
+2013-04-17,23,4.9
+2013-04-18,23,5.0
+2013-04-19,23,3.9
+2013-04-20,23,3.7
+2013-04-21,23,7.9
+2013-04-22,23,5.8
+2013-04-23,23,5.7
+2013-04-24,23,3.6
+2013-04-25,23,3.2
+2013-04-26,23,2.0
+2013-04-27,23,3.4
+2013-04-28,23,4.1
+2013-04-29,23,4.1
+2013-04-30,23,3.4</pre>
+  
+
+
+
+
+
+</body></html>
