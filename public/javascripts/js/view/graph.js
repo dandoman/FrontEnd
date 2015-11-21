@@ -5,9 +5,7 @@ GraphItemView = Backbone.Marionette.ItemView.extend({
 	 	"click #graphSubmit_button": "getInfo",
 	 },
 
-	 getInfo: function() {
-
-	 	console.log("HELLO");
+	 getInfo: function() {	 	
 
 	 	var self = this;
 
@@ -16,12 +14,6 @@ GraphItemView = Backbone.Marionette.ItemView.extend({
 	 	var operation = $('#operationOptions').find(":selected").text();
 	 	var marketplace = $('#marketOptions').find(":selected").text();
 	 	var metricName = $('#metricOptions').find(":selected").text();
-
-	 	console.log(applicationName);
-	 	console.log(hostname);
-	 	console.log(operation);
-	 	console.log(marketplace);
-	 	console.log(metricName);
 
 	 	var data = new DataModel();
 	 	data.url = 'http://ec2-52-88-83-153.us-west-2.compute.amazonaws.com:8080/MetricsService/metric/search?applicationName=' + applicationName + 

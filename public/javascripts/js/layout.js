@@ -6,12 +6,8 @@ MyApp.module('Layout', function (Layout, MyApp, Backbone) {
             login: '#login',
             info: '#info',
             register: '#register',
-           	applicationOption: '#applicationOption',
-           	hostnameOption: '#hostnameOption',
-           	operationOption: '#operationOption',
-           	marketOption: '#marketOption',
-           	metricOption: '#metricOption',
-           	graphButton: '#graphButton',
+           	optionv: '#optionv',
+            graphButton: '#graphButton'
         }
     });
 });
