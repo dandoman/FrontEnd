@@ -16,7 +16,8 @@ LoginItemView = Backbone.Marionette.ItemView.extend({
 
 		event.preventDefault();
 
-		var documentName = document.documentURI + "login";
+		var documentName = document.documentURI.split("#")[0];
+		documentName = documentName + "login";
 	
 	    //Send promise POST request
 	    var options = {

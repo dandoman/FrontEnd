@@ -52,7 +52,9 @@ MyApp.module('Main', function (Main, MyApp, Backbone, Marionette, $, _){
 
 			var searchParamModel = new SearchParamModel();
 
-			searchParamModel.url = "http://ec2-52-88-83-153.us-west-2.compute.amazonaws.com:8080/MetricsService/metric/searchParams?param=benchpress&customerId=342efwdfwef&startTime=0"
+			searchParamModel.url = document.documentURI + "metrics";
+
+			//searchParamModel.url = "http://ec2-52-88-83-153.us-west-2.compute.amazonaws.com:8080/MetricsService/metric/searchParams?param=benchpress&customerId=342efwdfwef&startTime=0"
 
 			searchParamModel.fetch({
 			    success: function () {
