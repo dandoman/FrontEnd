@@ -30,6 +30,9 @@ LoginItemView = Backbone.Marionette.ItemView.extend({
 	    };
 	    this.promiseJSONPOST(options).then(function (fulfilled) {
 	       console.log(fulfilled);
+	       //create cookie
+	       document.cookie = "customerId=" + fulfilled.id;
+
 	       //window.location.replace(documentName);
 	       vent.trigger("loggedIn", fulfilled);
 	    }, function (rejected) {

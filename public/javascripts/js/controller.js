@@ -43,18 +43,27 @@ MyApp.module('Main', function (Main, MyApp, Backbone, Marionette, $, _){
 			MyApp.root.showChildView('register', registerView);
 		},
 
+		textbox: function() {
+			$("#login").empty();
+			$("#register").empty();
+
+			var searchItemView = new SearchItemView();
+			MyApp.root.showChildView('textbox', searchItemView);
+		},
+
 		main: function(model) {
 			$("#login").empty();
 			$("#register").empty();
 			$("#optionv").empty();
 			$("#graphButton").empty();
-			$("#graph").empty();
+			$("#graph").empty();			
 
-			var searchParamModel = new SearchParamModel();
+			
 
-			searchParamModel.url = document.documentURI + "metrics";
 
-			//searchParamModel.url = "http://ec2-52-88-83-153.us-west-2.compute.amazonaws.com:8080/MetricsService/metric/searchParams?param=benchpress&customerId=342efwdfwef&startTime=0"
+			/*var searchParamModel = new SearchParamModel();
+
+			searchParamModel.url = document.documentURI + "metrics?someString=HELLO";
 
 			searchParamModel.fetch({
 			    success: function () {
@@ -64,7 +73,7 @@ MyApp.module('Main', function (Main, MyApp, Backbone, Marionette, $, _){
 					var graphButtonitemView = new GraphItemView();
 					MyApp.root.showChildView('graphButton', graphButtonitemView);
 			    }
-			});
+			});*/
 		}
 
 		/*showGraphButton: function() {
@@ -75,7 +84,8 @@ MyApp.module('Main', function (Main, MyApp, Backbone, Marionette, $, _){
 	}),
 
 	vent.on("loggedIn", function(model) {
-		MyApp.controller.main(model);
+		//MyApp.controller.main(model);
+		MyApp.controller.textbox();
 		window.MyApp.router.navigate("main");
 	});
 

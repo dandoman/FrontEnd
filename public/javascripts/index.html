@@ -15,6 +15,7 @@
         	<div id="login"></div>
         	<div id="info"></div>
         	<div id="register"></div>
+        	<div id="search"></div>
         	<div id="optionv"></div>
         	<div id="graphButton"></div>
         	<div id="graph"></div>
@@ -75,6 +76,10 @@
 	   		</div>
 		</script>
 
+		<script type="text/template" id="searchInput_template">
+			<input type="text" class="form-control" id="searchBox" placeholder="Search...">
+		</script>
+
 		<script type="text/template" id="graphSubmitButton_template">
 			<button type="button" class="btn btn-primary" id="graphSubmit_button">graph!</button>
 		</script>
@@ -108,14 +113,18 @@
 		</script>
        
         <!-- SCRIPTS -->
-        <script src="/javascripts/libraries/jquery-1.11.1.min.js"></script>
-	    <script src="/javascripts/libraries/lodash.min.js"></script>
-	    <script src="/javascripts/libraries/backbone-min.js"></script>
-	    <script src="/javascripts/libraries/backbone.marionette.min.js"></script>
-	    <script src="/javascripts/libraries/jquery-ui.js"></script>
-   		<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+        <script src="/javascripts/bower_components/jquery/dist/jquery.js"></script>
+        <script src="/javascripts/bower_components/jquery-ui/jquery-ui.js"></script>
+        <script src="/javascripts/bower_components/underscore/underscore.js"></script>
+	    <script src="/javascripts/bower_components/highstock/js/highstock.src.js"></script>
+	    <script src="/javascripts/bower_components/backbone/backbone.js"></script>
+	    <script src="/javascripts/bower_components/backbone.marionette/lib/core/backbone.marionette.js"></script>
+	    <script src="/javascripts/bower_components/backbone.wreqr/lib/backbone.wreqr.js"></script>
+   		<script src="/javascripts/bower_components/moment/moment.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script src="/javascripts/libraries/Highstock-2.1.6/js/highstock.js"></script>
+        
+
+
 
 		<script src="/javascripts/js/app.js"></script>
 		<script src="/javascripts/js/controller.js"></script>
@@ -124,6 +133,7 @@
 		<script src="/javascripts/js/view/login.js"></script>
 		<script src="/javascripts/js/view/info.js"></script>        
 		<script src="/javascripts/js/view/register.js"></script>
+		<script src="/javascripts/js/view/search.js"></script>
 		<script src="/javascripts/js/view/optionview.js"></script>
 		<script src="/javascripts/js/view/graph.js"></script>
 

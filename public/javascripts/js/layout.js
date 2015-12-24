@@ -7,7 +7,8 @@ MyApp.module('Layout', function (Layout, MyApp, Backbone) {
             info: '#info',
             register: '#register',
            	optionv: '#optionv',
-            graphButton: '#graphButton'
+            graphButton: '#graphButton',
+            textbox: '#search'
         }
     });
 });
