@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>TTC PROJECT</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/javascripts/css/myStyle.css"/>
+    </head>
+    <body>
+        <div class="container-fluid">
+	        <div class="jumbotron">
+			    <h1>TTC PROJECT</h1>      
+				<p>Nic is awesome!</p>      
+			</div>
+        	<div id="login"></div>
+        	<div id="info"></div>
+        	<div id="register"></div>
+        	<div id="search"></div>
+        	<div id="optionv"></div>
+        	<div id="graphButton"></div>
+        	<div id="graph"></div>
+        </div>
+
+        <!-- TEMPLATES -->
+        <script type="text/template" id="login_template">
+	    	<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-12 col-xs-12">
+	  			<input type="text" class="form-control" id="account" placeholder="Account">
+
+	  			<input type="password" class="form-control" id="password" placeholder="Password">
+
+	  			<a><div>Forgot password</div></a>
+	  			<a id="register_button"><div>Register</div></a>
+	  			<button type="button" class="btn btn-primary" id="login_button">Login</button>
+	  		</div>
+		</script>
+
+		<script type="text/template" id="register_template">
+			<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-12 col-xs-12">
+		    	<p><center>Registration</center></p>
+
+		    	<label for="organization_name">Organization Name:</label>
+				<input type="text" class="form-control" id="organization_name" placeholder="Organization Name">
+				
+				<label for="organization_address">Organization Address</label>
+				<input type="text" class="form-control" id="organization_address" placeholder="Organization Address">
+
+				<label for="full_name">Full Name:</label>
+				<input type="text" class="form-control" id="full_name" placeholder="Full Name">
+
+				<label for="pwd">Password:</label>
+      			<input type="password" class="form-control" id="pwd" placeholder="Enter password">
+      			<input type="password" class="form-control" id="pwd2" placeholder="Re-enter password">
+
+      			<label for="email">Email:</label>
+				<input type="email" class="form-control" id="email" placeholder="Email">
+
+				<label for="phone_number">Phone Number:</label>
+				<input type="text" class="form-control" id="phone_number" placeholder="Phone Number">
+
+				<label for="billing_name">Billing Name:</label>
+				<input type="text" class="form-control" id="billing_number" placeholder="Billing Name">
+
+				<label for="billing_address">Billing Address:</label>
+				<input type="text" class="form-control" id="billing_address" placeholder="Billing Address">
+
+				<label for="expiry">Expiry Date:</label>
+				<input type="text" class="form-control" id="expiry" placeholder="Expiry Date">
+
+				<label for="cvs">CVS:</label>
+				<input type="number" class="form-control" id="cvs" placeholder="cvs">
+
+				<label for="credit_card">Credit Card Number:</label>
+				<input type="number" class="form-control" id="credit_card" placeholder="Credit Card Number">
+
+				<button type="button" class="btn btn-primary" id="register_button">Register</button>
+	   		</div>
+		</script>
+
+		<script type="text/template" id="searchInput_template">
+			<input type="text" class="form-control" id="searchBox" placeholder="Search...">
+		</script>
+
+		<script type="text/template" id="graphSubmitButton_template">
+			<button type="button" class="btn btn-primary" id="graphSubmit_button">graph!</button>
+		</script>
+
+		<script type="text/template" id="option_template">
+			<div class="form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
+				<label for="applicationOptions">Select Application Name:</label>
+				<select class="form-control" id="applicationOptions">
+			  	</select>
+			</div>
+			<div class="form-group form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
+				<label for="hostnameOptions">Select hostname:</label>
+				<select class="form-control" id="hostnameOptions">
+			  	</select>
+			</div>
+			<div class="form-group form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
+				<label for="operationOptions">Select Operation Name:</label>
+				<select class="form-control" id="operationOptions">
+			  	</select>
+			</div>
+			<div class="form-group form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
+				<label for="marketOptions">Select Marketplace:</label>
+				<select class="form-control" id="marketOptions">
+			  	</select>
+			</div>
+			<div class="form-group form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
+				<label for="metricOptions">Select Metric Name:</label>
+				<select class="form-control" id="metricOptions">
+			  	</select>
+			</div>
+		</script>
+       
+        <!-- SCRIPTS -->
+        <script src="/javascripts/bower_components/jquery/dist/jquery.js"></script>
+        <script src="/javascripts/bower_components/jquery-ui/jquery-ui.js"></script>
+        <script src="/javascripts/bower_components/underscore/underscore.js"></script>
+	    <script src="/javascripts/bower_components/highstock/js/highstock.src.js"></script>
+	    <script src="/javascripts/bower_components/backbone/backbone.js"></script>
+	    <script src="/javascripts/bower_components/backbone.marionette/lib/core/backbone.marionette.js"></script>
+	    <script src="/javascripts/bower_components/backbone.wreqr/lib/backbone.wreqr.js"></script>
+   		<script src="/javascripts/bower_components/moment/moment.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        
+
+
+
+		<script src="/javascripts/js/app.js"></script>
+		<script src="/javascripts/js/controller.js"></script>
+		<script src="/javascripts/js/layout.js"></script>
+
+		<script src="/javascripts/js/view/login.js"></script>
+		<script src="/javascripts/js/view/info.js"></script>        
+		<script src="/javascripts/js/view/register.js"></script>
+		<script src="/javascripts/js/view/search.js"></script>
+		<script src="/javascripts/js/view/optionview.js"></script>
+		<script src="/javascripts/js/view/graph.js"></script>
+
+		<script src="/javascripts/js/model/searchParam.js"></script>		
+		<script src="/javascripts/js/model/data.js"></script>		
+    </body>
+</html>
