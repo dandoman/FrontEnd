@@ -18,18 +18,22 @@ SearchItemView = Backbone.Marionette.ItemView.extend({
         	console.log("searching: " + userSearchInput);
         	var searchParamModel = new SearchParamModel();
 
-        	var URL = document.documentURI.split("/")[0];
+        	var URI = this.getURI();
 
-			searchParamModel.url = URL + "metrics?searchQuery=" + userSearchInput;
+			searchParamModel.url = URI + "metrics?searchQuery=" + userSearchInput;
 
 			searchParamModel.fetch({
 			    success: function () {
-			    	console.log(searchParamModel.toJSON());
+			    	//console.log(searchParamModel.toJSON());
 
 			    	// create dropdown view
-
+			    	vent.trigger("showDropdown", searchParamModel);
 			    }
 			});
         }
+	},
+
+	getURI: function() {
+		return document.documentURI.split("/")[0];
 	}
 });

@@ -51,36 +51,19 @@ MyApp.module('Main', function (Main, MyApp, Backbone, Marionette, $, _){
 			MyApp.root.showChildView('textbox', searchItemView);
 		},
 
-		main: function(model) {
+		main: function(searchParamModel) {
 			$("#login").empty();
 			$("#register").empty();
 			$("#optionv").empty();
 			$("#graphButton").empty();
 			$("#graph").empty();			
 
-			
+			var optionView = new OptionItemView({model: searchParamModel});
+			MyApp.root.showChildView('optionv', optionView);
 
-
-			/*var searchParamModel = new SearchParamModel();
-
-			searchParamModel.url = document.documentURI + "metrics?someString=HELLO";
-
-			searchParamModel.fetch({
-			    success: function () {
-			    	var optionView = new OptionItemView({model: searchParamModel});
-					MyApp.root.showChildView('optionv', optionView);
-
-					var graphButtonitemView = new GraphItemView();
-					MyApp.root.showChildView('graphButton', graphButtonitemView);
-			    }
-			});*/
-		}
-
-		/*showGraphButton: function() {
 			var graphButtonitemView = new GraphItemView();
-
 			MyApp.root.showChildView('graphButton', graphButtonitemView);
-		}*/
+		}
 	}),
 
 	vent.on("loggedIn", function(model) {
@@ -92,6 +75,10 @@ MyApp.module('Main', function (Main, MyApp, Backbone, Marionette, $, _){
 	vent.on("register:click", function() {
 		MyApp.controller.register();
 		window.MyApp.router.navigate("register");
+	});
+
+	vent.on("showDropdown", function(param) {
+		MyApp.controller.main(param);
 	});
 
 });
