@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "./node_modules/.bin/jasmine-node spec"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -14,5 +15,12 @@
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
     "request": "~2.61.0"
+  },
+  "devDependencies": {
+    "bower": "~1.6.5",
+    "browserify": "~12.0.1",
+    "grunt": "~0.4.5",
+    "jasmine": "^2.4.1",
+    "jasmine-node": "^1.14.5"
   }
 }

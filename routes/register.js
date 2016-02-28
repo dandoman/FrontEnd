@@ -7,7 +7,6 @@ var request = require('request');
 var router = express.Router();
 
 var springURI = "http://ec2-52-88-83-153.us-west-2.compute.amazonaws.com:8080/MetricsService/customer";
-//var metricURI = "http://ec2-52-88-83-153.us-west-2.compute.amazonaws.com:8080/MetricsService/metric/searchParams?param=benchpress&customerId=342efwdfwef&startTime=0";
 var postData = "";
 
 router.post('/', function (req, res, next) {

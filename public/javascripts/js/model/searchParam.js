@@ -1,9 +1,21 @@
-SearchParamModel = Backbone.Model.extend();
+define([
+	'backbone',
+	'marionette',
+], function () {
 
-SearchParamCollection = Backbone.Collection.extend({
-	model: SearchParamModel,
+	SearchParamModel = Backbone.Model.extend();
 
-	initialize: function() {
-		
-	}
+	SearchParamCollection = Backbone.Collection.extend({
+		model: SearchParamModel,
+
+		initialize: function() {
+			
+		}
+	});
+
+	return {
+		Model: SearchParamModel,
+		Collection: SearchParamCollection
+	};
+
 });
