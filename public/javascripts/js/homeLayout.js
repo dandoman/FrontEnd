@@ -8,9 +8,9 @@ define([
 	    HomeLayout.Root = Backbone.Marionette.LayoutView.extend({
 	        el: 'body',
 	        regions: {
-	            optionv: '#optionv',
-	            graphButton: '#graphButton',
-	            textbox: '#search'
+	        	sidebar: '#sidebar',
+	        	dashboard: '#dashboard',
+	        	monitor: '#monitor'
 	        }
 	    });
 	});

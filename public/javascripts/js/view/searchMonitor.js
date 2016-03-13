@@ -4,7 +4,7 @@ define([
 	'../model/searchParam',
 	'tpl!/javascripts/templates/search.tpl'
 ], function (Backbone, Marionette, SearchParam, search) {
-	SearchItemView = Backbone.Marionette.ItemView.extend({
+	SearchMonitorItemView = Backbone.Marionette.ItemView.extend({
 		template: search,
 
 		events: {
@@ -12,7 +12,7 @@ define([
 		},
 
 		initialize: function() {
-			console.log('Displaying: search');
+			console.log('Displaying: searchMonitor');
 		},
 
 		searchInput: function(e) {
@@ -20,7 +20,7 @@ define([
 
 			var userSearchInput = $("#searchBox").val();
 
-	        if(code == 13) {
+	        if(code == 13) { // enter value
 	        	var searchParamModel = new SearchParam.Model();
 
 	        	var URI = this.getURI();
@@ -29,7 +29,7 @@ define([
 
 				searchParamModel.fetch({
 				    success: function () {
-				    	vent.trigger("showDropdown", searchParamModel);
+				    	vent.trigger("showDropdownMonitor", searchParamModel);
 				    }
 				});
 	        }
@@ -40,6 +40,6 @@ define([
 		}
 	});
 
-	return SearchItemView;
+	return SearchMonitorItemView;
 	
 });

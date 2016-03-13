@@ -1,18 +1,16 @@
 define([
 	'backbone',
 	'marionette',
-	'highcharts',
 	'bootstrap-datetimepicker',
 	'moment',
 	'../model/searchParam',
 	'../model/data',
-	'tpl!/javascripts/templates/option.tpl'	
-], function (Backbone, Marionette, highcarts, datatimepicker, moment, SearchParam, data, option) {
-	OptionItemView = Backbone.Marionette.ItemView.extend({
-		template: option,
+	'tpl!/javascripts/templates/monitorOption.tpl'	
+], function (Backbone, Marionette, datatimepicker, moment, SearchParam, data, monitorOption) {
+	OptionMonitorItemView = Backbone.Marionette.ItemView.extend({
+		template: monitorOption,
 
 		initialize: function() {
-			//console.log(this.model.toJSON());
 			this.currentUserParam = CurrentUserParam();
 		},
 
@@ -22,7 +20,7 @@ define([
 			"change #operationOptions": "changeModel",
 			"change #marketOptions": "changeModel",
 			"change #metricOptions": "changeModel",
-			"click #graphSubmit_button": "getData",
+			"click #createMonitor": "createMonitor"
 		},
 
 		modelEvents: {
@@ -79,8 +77,6 @@ define([
 
 	    	searchParamModel.url = this.currentUserParam.getURI();
 
-	    	console.log(searchParamModel.url);
-
 			var self = this;
 
 			searchParamModel.fetch({
@@ -94,8 +90,8 @@ define([
 			});
 		},
 
-		getURI: function() {
-			return document.documentURI.split("/")[0];
+		getURI: function () {
+			return "http://" + document.documentURI.split("/")[2];
 		},
 
 		fillDropdowns: function() {
@@ -172,107 +168,86 @@ define([
 			}
 		},
 
-		getData: function() {	 	
+		createMonitor: function() {
+			
+			var params = this.getInfo();
+			var url = this.getURI() + "/monitor";
 
-		 	var self = this;
+			var options = {
+				url: url,
+				params: params
+			}
 
-		 	//var dataCollection = new DataCollection();
-		 	var dataCollection = new data.Collection();
-
-		 	dataCollection.url = this.getURI();
-		 	if (dataCollection.url) {
-		 		dataCollection.fetch({
-			 		success: function() {
-			 			self.successCallback(dataCollection.toJSON());
-			 		}
-			 	});
-		 	}else{
-		 		alert("No valid keyword was detected");
-		 	}
-		 },
-
-		 successCallback: function(data) {
-		 	var startDate = moment($("#date_begin2").val());
-		 	var endDate = moment($("#date_end2").val());
-
-		 	var serializedData = this.serializeSerie(data, startDate, endDate);
-		 	this.showGraph(serializedData, this.getStatOption());
-		 },
-
-		 serializeSerie: function(data, startDate, endDate) {
-
-		 	var serie = [];
-
-		 	for (var i=0; i<data.length; i++) {
-		 		var dataDate = moment(data[i].timeStamp);		 		
-		 		//if (dataDate.isBetween(startDate, endDate)) {
-		 			serie.push([data[i].timeStamp, data[i][this.getStatOption()]]);
-		 		//}
-		 	}
-
-		 	return serie;
-		 },
-
-		 showGraph: function(serie, title) {
-		 	$('#graph').highcharts({
-		        chart: {
-		            type: 'line'
-		        },
-		        title: {
-		            text: title
-		        },
-		        xAxis: {
-		           	type: 'datetime',
-				    minRange: 3600000
-		        },
-		        yAxis: {
-		            
-		        },
-		        tooltip: {
-		         	  
-		        },
-		        plotOptions: {
-		            column: {
-		                pointPadding: 0.2,
-		                borderWidth: 0
-		            }
-		        },
-		        series: [{data: serie}]
+			this.promiseJSONPOST(options).then(function (fulfilled) {
+		       //window.location.replace(documentName);
+		       //vent.trigger("loggedIn", fulfilled);
+		    }, function (rejected) {
+		        console.log(rejected);
 		    });
-		 },
-
-		 getURI: function() {
-
-		 	var startTime = moment($("#date_begin2").val()).unix() * 1000;
-		 	var finishTime = moment($("#date_end2").val()).unix() * 1000;
-
-		 	var applicationName = $('#applicationOptions').find(":selected").text();
-		 	var hostname = $('#hostnameOptions').find(":selected").text();
-		 	var operation = $('#operationOptions').find(":selected").text();
-		 	var marketplace = $('#marketOptions').find(":selected").text();
-		 	var metricName = $('#metricOptions').find(":selected").text();
-
-		 	if (applicationName === "" || hostname === "" || operation === "" || marketplace === "" || metricName === "") {
-		 		return null;
-		 	}
-
-		 	var URI = document.documentURI.split("/")[0] + "/data";
-
-		 	URI += "?applicationName=" + applicationName
-		 		+ "&hostname=" + hostname
-		 		+ "&operation=" + operation
-		 		+ "&marketplace=" + marketplace
-		 		+ "&metricName=" + metricName
-		 		+ "&startTime=" + startTime
-		 		+ "&finishTime=" + finishTime;
-
-		 	console.log(URI);
-
-			return URI;
 		},
 
-		getStatOption: function() {
-			return $("#statsOptions").val();
+		promiseJSONPOST: function(opts) {
+			return this.promisePOST(opts).then(JSON.parse);	
+		},
+
+		promisePOST: function(opts) {
+			return new Promise(function (resolve, reject) {
+		        var xhr = new XMLHttpRequest();
+		        xhr.open("POST", opts.url);
+		        xhr.onload = function () {
+		            if (this.status >= 200 && this.status < 300) {
+		                resolve(xhr.response);
+		            } else {
+		                reject({
+		                    status: this.status,
+		                    statusText: xhr.statusText
+		                });
+		            }
+		        };
+		        xhr.onerror = function () {
+		            reject({
+		                status: this.status,
+		                statusText: xhr.statusText
+		            });
+		        };
+		        if (opts.headers) {
+		            Object.keys(opts.headers).forEach(function (key) {
+		                xhr.setRequestHeader(key, opts.headers[key]);
+		            });
+		        }
+		        var params = opts.params;
+		        // We'll need to stringify if we've been given an object
+		        // If we have a string, this is skipped.
+		        if (params && typeof params === 'object') {
+		            params = JSON.stringify(params);
+		        }
+		        xhr.send(params);
+		    });
+		},
+
+		getInfo: function() {
+			var monitorInfo = {};
+
+			monitorInfo.customerId = this.getCookie("customerId");
+			monitorInfo.applicationName = $("#applicationOptions option:selected").text();
+			monitorInfo.hostName = $("#hostnameOptions option:selected").text();
+			monitorInfo.operation = $("#operationOptions option:selected").text();
+			monitorInfo.market = $("#marketOptions option:selected").text();
+			monitorInfo.metricName = $("#metricOptions option:selected").text();
+			monitorInfo.type = $("#type").val();
+			monitorInfo.threshold = $("#threshold").val();
+			monitorInfo.counts = $("#counts").val();
+			monitorInfo.less = $("#less option:selected").val();
+			monitorInfo.email = $("#email").val();
+			monitorInfo.description = $("#textarea").val();
+
+			return monitorInfo;
+		},
+
+		getCookie: function(name) {
+		  	var value = "; " + document.cookie;
+		  	var parts = value.split("; " + name + "=");
+		  	if (parts.length == 2) return parts.pop().split(";").shift();
 		}
 	});
 
@@ -318,5 +293,5 @@ define([
 		}
 	}
 
-	return OptionItemView;
+	return OptionMonitorItemView;
 });

@@ -12,6 +12,7 @@ var postData = "";
 router.post('/', function (req, res, next) {
     req.on('data', function (data) {
         postData = JSON.parse(data);
+
         //TODO make this post request be an async promise
         //TODO maybe use a different library or promisify this itself
         request.post({url: springURI, json: postData}, function (error, response, body) {
@@ -41,10 +42,10 @@ router.get('/', function (req, res, next) {
     //TODO make this post request be an async promise
     //TODO maybe use a different library or promisify this itself
 
-    var springURI = getURI(req);
+    var URL = getURI(req);
     console.log(springURI);
 
-    request.get({url: springURI}, function (error, response, body) {
+    request.get({url: URL}, function (error, response, body) {
 
         console.log('in request');
 
@@ -65,9 +66,9 @@ router.get('/', function (req, res, next) {
 
 function getURI(req) {
 
-    springURI += "&customerId=" + req.cookies.customerId;
+    var URL = springURI + "?ownerId=" + req.cookies.customerId;
 
-    return springURI;
+    return URL;
 };
 
 module.exports = router

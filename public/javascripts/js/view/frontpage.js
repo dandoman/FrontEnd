@@ -2,9 +2,7 @@ define([
 	'backbone',
 	'marionette',
 	'tpl!/javascripts/templates/frontpage.tpl',
-	'skrollr',
-	//'skrollrMenu'
-], function (Backbone, Marionette, frontpage, skrollr) {
+], function (Backbone, Marionette, frontpage) {
 	FrontPage = Backbone.Marionette.ItemView.extend({
 		template: frontpage,
 		
@@ -17,7 +15,7 @@ define([
 		},
 
 		onShow: function() {
-			var s = skrollr.init();
+			
 
 			/*skrollrMenu.init(s, {
 				animate: true,
