@@ -18,7 +18,7 @@ LoginNav = Backbone.Marionette.ItemView.extend({
 		var account = $('#userEmail').val();
 		var password = $('#userPassword').val();
 
-		event.preventDefault();
+		//event.preventDefault();
 
 		var documentName = document.documentURI.split("#")[0];
 		documentName = documentName + "login";

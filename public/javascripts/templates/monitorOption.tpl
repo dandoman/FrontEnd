@@ -27,7 +27,19 @@
 
 	<div class="form-group form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">
 	    <label>Type</label>
-	    <input class="form-control" id="type">
+	    <select class="form-control" id="type">
+	    	<option value="p0">p0</option>
+	    	<option value="p50">p50</option>
+	    	<option value="75">p75</option>
+	    	<option value="p90">p90</option>
+	    	<option value="p99">p99</option>
+	    	<option value="p999">p999</option>
+	    	<option value="p9999">p9999</option>
+	    	<option value="p100">p100</option>
+	    	<option value="avg">Average</option>
+	    	<option value="count">Count</option>
+	    	<option value="sum">Sum</option>
+	  	</select>
 	</div>
 
 	<div class="form-group form-group col-lg-4 col-md-4 col-sm-12 col-xs-12">

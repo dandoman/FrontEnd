@@ -1,7 +1,7 @@
 <li class="list-group-item">
 	<div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title"><%= name %></h3>
+        <div class="panel-heading clearfix">
+            <h3 class="panel-title"><%= name %></h3><div class="pull-right" id="delete">Delete</div>
         </div>
         <div class="panel-body">
            <div>Application: <%= applicationName %></div>

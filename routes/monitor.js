@@ -9,6 +9,15 @@ var router = express.Router();
 var springURI = "http://ec2-52-88-83-153.us-west-2.compute.amazonaws.com:8080/MetricsService/monitor";
 var postData = "";
 
+router.delete('/:id', function(req, res, next) {
+    /*req.on('data', function(data) {
+        console.log(JSON.parse(data));
+    });*/
+
+    request.del(springURI + "/" + req.params.id);
+});
+
+
 router.post('/', function (req, res, next) {
     req.on('data', function (data) {
         postData = JSON.parse(data);

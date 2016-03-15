@@ -179,8 +179,11 @@ define([
 			}
 
 			this.promiseJSONPOST(options).then(function (fulfilled) {
-		       //window.location.replace(documentName);
-		       //vent.trigger("loggedIn", fulfilled);
+				if (fulfilled.message) {
+					alert(fulfilled.message);
+				}else{
+					vent.trigger("monitorViewClick");	
+				}
 		    }, function (rejected) {
 		        console.log(rejected);
 		    });
@@ -234,11 +237,11 @@ define([
 			monitorInfo.operation = $("#operationOptions option:selected").text();
 			monitorInfo.market = $("#marketOptions option:selected").text();
 			monitorInfo.metricName = $("#metricOptions option:selected").text();
-			monitorInfo.type = $("#type").val();
+			monitorInfo.type = $("#type option:selected").val();
 			monitorInfo.threshold = $("#threshold").val();
 			monitorInfo.counts = $("#counts").val();
 			monitorInfo.less = $("#less option:selected").val();
-			monitorInfo.email = $("#email").val();
+			monitorInfo.emailRecipient = $("#email").val();
 			monitorInfo.description = $("#textarea").val();
 
 			return monitorInfo;

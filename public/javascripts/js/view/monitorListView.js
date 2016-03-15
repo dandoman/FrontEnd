@@ -6,8 +6,22 @@ define([
 	MonitorItemView = Backbone.Marionette.ItemView.extend({
 		template: monitorListTemplate,
 
+		events: {
+			"click #delete": "delete",
+		},
+
 		initialize: function() {
 			
+		},
+
+		delete: function() {
+			this.model.url = this.getURI() + '/monitor/' + this.model.get("id");
+			console.log(this.model.toJSON());
+			this.model.destroy();
+		},
+
+		getURI: function () {
+			return "http://" + document.documentURI.split("/")[2];
 		}
 	});
 

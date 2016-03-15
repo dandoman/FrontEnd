@@ -229,3 +229,7 @@ ul.alert-dropdown {
 label {display:block;}
 
 textarea { display:block;}
+
+#delete:hover {
+    text-decoration: underline;
+}
