@@ -42,7 +42,7 @@ require([
   'layout',
   'jquery',
   'scrollgress',
-  'main'
+  'main',
 ], function(MyApp){
 
   MyApp.on('start', function() {

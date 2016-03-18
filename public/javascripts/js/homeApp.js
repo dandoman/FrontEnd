@@ -1,6 +1,6 @@
 define([
 	'backbone',
-	'marionette'
+	'marionette',
 ], function (Backbone, Marionette) {
 	var HomeApp = Backbone.Marionette.Application.extend({
 		initialize: function() {

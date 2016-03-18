@@ -11,8 +11,9 @@ define([
 	'view/searchMonitor',
 	'model/monitor',
 	'view/optionMonitor',
-	'view/monitorListView'
-], function(Backbone, Marionette, HomeApp, SearchItemView, OptionItemView, SidebarItemView, DashBoardItemView, MonitorItemView, SearchMonitorItemView, monitor, OptionMonitorItemView, MonitorListView) {
+	'view/monitorListView',
+	'view/topbar',
+], function(Backbone, Marionette, HomeApp, SearchItemView, OptionItemView, SidebarItemView, DashBoardItemView, MonitorItemView, SearchMonitorItemView, monitor, OptionMonitorItemView, MonitorListView, TopBarItemView) {
 
 	HomeApp.module('Home', function (Home, HomeApp, Backbone, Marionette, $, _){
 
@@ -34,8 +35,23 @@ define([
 
 				HomeApp.root = new HomeApp.HomeLayout.Root();		
 
+				this.checkCookie();
+
 				this.sidebar();
 				this.dashboard();
+				this.topbar();
+			},
+
+			topbar: function() {
+				var userModel = new Backbone.Model();
+				userModel.url = document.documentURI.split("/")[0] + "/customer";
+
+				userModel.fetch({
+					success: function() {
+						var topBarItemView = new TopBarItemView({model: userModel});
+						HomeApp.root.showChildView('topbar', topBarItemView);
+					}
+				})
 			},
 
 			/*
@@ -53,6 +69,8 @@ define([
 				$("#monitorList").empty();
 				$("#dashboard").empty();
 				$("#monitor").empty();
+
+				this.checkCookie();
 
 				HomeApp.root.addRegion("search", "#search");
 
@@ -82,6 +100,8 @@ define([
 				$("#dashboard").empty();	
 				$("#monitor").empty();
 
+				this.checkCookie();
+
 				HomeApp.root.addRegion("search", "#search");
 				
 				var monitorItemView = new MonitorItemView();
@@ -110,6 +130,8 @@ define([
 				$("#dashboard").empty();
 				$("#monitor").empty();
 
+				this.checkCookie();
+
 				var monitorCollection = new monitor.Collection();
 				monitorCollection.url = document.documentURI.split("/")[0] + "/monitor";
 
@@ -133,6 +155,15 @@ define([
 				HomeApp.root.addRegion("monitorList", "#monitorList");
 				var monitorCollectionView = new MonitorListView.CollectionView({collection: monitorCollection});
 				HomeApp.root.showChildView('monitorList', monitorCollectionView);
+			},
+
+			checkCookie: function() {
+				var phrase = document.cookie;
+				var myRegexp = /customerId=(.*)/;
+				var match = myRegexp.exec(phrase);
+				if (!match) {
+					window.location.href = document.location.origin;
+				}
 			}
 		}),
 
@@ -156,6 +187,6 @@ define([
 			HomeApp.controller.optionViewMonitor(param);
 		});
 	});
-	
+
 	return HomeApp.Home;
 });

@@ -10,7 +10,8 @@ define([
 	        regions: {
 	        	sidebar: '#sidebar',
 	        	dashboard: '#dashboard',
-	        	monitor: '#monitor'
+	        	monitor: '#monitor',
+	        	topbar: '#topbar'
 	        }
 	    });
 	});
