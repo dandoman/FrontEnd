@@ -25,7 +25,9 @@
     "moment": "~2.10.6",
     "bootstrap-datepicker": "~1.5.1",
     "eonasdan-bootstrap-datetimepicker": "~4.17.37",
-    "bootstrap": "~3.3.6"
+    "bootstrap": "~3.3.6",
+    "moment-timezone": "^0.5.2",
+    "jstz": "*"
   },
   "devDependencies": {
     "requirejs": "~2.1.22",

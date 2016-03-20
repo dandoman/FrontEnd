@@ -3,11 +3,12 @@ define([
 	'marionette',
 	'highcharts',
 	'bootstrap-datetimepicker',
-	'moment',
+	'moment-timezone',
+	'jstz',
 	'../model/searchParam',
 	'../model/data',
 	'tpl!/javascripts/templates/option.tpl'	
-], function (Backbone, Marionette, highcarts, datatimepicker, moment, SearchParam, data, option) {
+], function (Backbone, Marionette, highcarts, datatimepicker, moment, jstz, SearchParam, data, option) {
 	OptionItemView = Backbone.Marionette.ItemView.extend({
 		template: option,
 
@@ -229,7 +230,10 @@ define([
 		            
 		        },
 		        tooltip: {
-		         	  
+		        	formatter: function() {
+		        		return '<p><b>Date: ' + moment(this.x).tz(Intl.DateTimeFormat().resolved.timeZone).format("YYYY-MM-DD HH:mm:ss") +
+		        		 '</b></p><p><b> Value: ' + this.y + '</b>';
+		        	}
 		        },
 		        plotOptions: {
 		            column: {
