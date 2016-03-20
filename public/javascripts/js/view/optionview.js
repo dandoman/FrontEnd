@@ -233,7 +233,7 @@ define([
 		        },
 		        tooltip: {
 		        	formatter: function() {
-		        		return '<p><b>Date: ' + moment(this.x).tz(Intl.DateTimeFormat().resolved.timeZone).format("YYYY-MM-DD HH:mm:ss") +
+		        		return '<p><b>Date: ' + moment(this.x).tz(Intl.DateTimeFormat().resolved.timeZone).format("YYYY-MM-DD hh:mm A") +
 		        		 '</b></p><p><b> Value: ' + this.y + '</b>';
 		        	}
 		        },
