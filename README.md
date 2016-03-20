@@ -5,8 +5,7 @@ To fetch FRONTEND dependencies :
 
 cd public/javascripts
 
-bower install
-
+/node_modules/bower/bin/bower install
 
 run server : npm start
 

@@ -5,31 +5,31 @@
 	<div class="box">
 		<div class="row uniform 50%">
 			<div class="6u 12u(mobilep)">
-				<input type="text" name="name" id="name" value="" placeholder="Full Name" />
+				<input type="text" name="name" id="full_name" value="" placeholder="Full Name" />
 			</div>
 			<div class="6u 12u(mobilep)">
 				<input type="email" name="email" id="email" value="" placeholder="Email" />
 			</div>
 			<div class="6u 12u(mobilep)">
-				<input type="text" name="organizationName" id="organizationName" value="" placeholder="Organization Name" />
+				<input type="text" name="organizationName" id="organization_name" value="" placeholder="Organization Name" />
 			</div>
 			<div class="6u 12u(mobilep)">
-				<input type="text" name="organizationAddress" id="organizationAddress" value="" placeholder="Organization Address" />
+				<input type="text" name="organizationAddress" id="organization_address" value="" placeholder="Organization Address" />
 			</div>
 			<div class="6u 12u(mobilep)">
-				<input type="password" name="password" id="password" value="" placeholder="Password" />
+				<input type="password" name="password" id="pwd" value="" placeholder="Password" />
 			</div>
 			<div class="6u 12u(mobilep)">
-				<input type="password" name="password2" id="password2" value="" placeholder="Repeat Password" />
+				<input type="password" name="password2" id="pwd2" value="" placeholder="Repeat Password" />
 			</div>
 			<div class="6u 12u(mobilep)">
-				<input type="text" name="phone" id="phone" value="" placeholder="Phone Number" />
+				<input type="text" name="phone" id="phone_number" value="" placeholder="Phone Number" />
 			</div>
 			<div class="6u 12u(mobilep)">
-				<input type="text" name="billingName" id="billingName" value="" placeholder="Billing Name" />
+				<input type="text" name="billingName" id="billing_name" value="" placeholder="Billing Name" />
 			</div>
 			<div class="6u 12u(mobilep)">
-				<input type="text" name="billingName" id="billingAddress" value="" placeholder="Billing Address" />
+				<input type="text" name="billingName" id="billing_address" value="" placeholder="Billing Address" />
 			</div>
 			<div class="6u 12u(mobilep)">
 				<input type="text" name="expiry" id="expiry" value="" placeholder="Expiry Date MM/YYYY" />
@@ -38,7 +38,7 @@
 				<input type="text" name="cvs" id="cvs" value="" placeholder="CVS" />
 			</div>
 			<div class="6u 12u(mobilep)">
-				<input type="text" name="CreditCard" id="creditCard" value="" placeholder="Credit Card Number" />
+				<input type="text" name="CreditCard" id="credit_card" value="" placeholder="Credit Card Number" />
 			</div>
 
 		</div>

@@ -30,7 +30,11 @@ define([
 		        params: registration
 		    };
 		    this.promiseJSONPOST(options).then(function (fulfilled) {
-		       console.log(fulfilled);
+		       if (!fulfilled.message) {
+		       	window.location.href = document.location.origin;
+		       }else{
+		       	alert(fulfilled.message);
+		       }
 		       //window.location.replace(documentName);
 		       //vent.trigger("loggedIn", fulfilled);
 		    }, function (rejected) {
