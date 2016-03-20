@@ -224,7 +224,7 @@ define([
 				    minRange: 3600000,*/
 				    labels: {
 			            formatter: function() {
-			                return moment(this.value).tz(Intl.DateTimeFormat().resolved.timeZone).format("HH:mm");
+			                return moment(this.value).tz(Intl.DateTimeFormat().resolved.timeZone).format("YYYY-MM-DD HH:mm");
 			            }
 			        }
 		        },

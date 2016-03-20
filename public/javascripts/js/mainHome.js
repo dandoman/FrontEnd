@@ -15,7 +15,6 @@ require.config({
     moment: '../bower_components/moment/moment',
     'moment-timezone': '../bower_components/moment-timezone/builds/moment-timezone-with-data',
     jstz: '../bower_components/jstz/jstz',
-    'bootstrap-datepicker': '../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker',
     'bootstrap-datetimepicker': '../bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker',
     bootstrap: '../bower_components/bootstrap/dist/js/bootstrap',
     tpl: '../bower_components/requirejs-tpl/tpl'
@@ -33,7 +32,6 @@ require.config({
   		exports: 'Marionette'
   	},
   	'bootstrap-datetimepicker': {
-  		deps: ['bootstrap-datepicker'],
   		exports: 'datetimepicker'
   	}
   }
