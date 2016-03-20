@@ -43,14 +43,10 @@ define([
 			var end = moment();
 
 			$('.input-group.date.begin').datetimepicker({
-	            format: "YYYY-MM-DD HH:mm",
-	            sideBySide: true,
 	            defaultDate: start.format("YYYY-MM-DD HH:mm")
 	        });
 
 	        $('.input-group.date.end').datetimepicker({
-	            format: "YYYY-MM-DD HH:mm",
-	            sideBySide: true,
 	            defaultDate: end.format("YYYY-MM-DD HH:mm")
 	        });
 		},
