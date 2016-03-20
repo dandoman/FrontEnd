@@ -55,7 +55,7 @@ function getURI(req) {
 
     springURI += "&customerId=" + req.cookies.customerId 
         + "&startTime=" + req.query.startTime
-        + "&finishTime=" + req.query.finishTime;
+        + "&endTime=" + req.query.finishTime;
 
     console.log("springURI: " + springURI);
 

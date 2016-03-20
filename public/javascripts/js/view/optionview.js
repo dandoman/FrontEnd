@@ -39,18 +39,19 @@ define([
 			this.fillDropdowns();
 			this.highlight();
 
+			var start = moment().subtract(1, 'M');
+			var end = moment();
+
 			$('.input-group.date.begin').datetimepicker({
 	            format: "YYYY-MM-DD HH:mm",
-	            stepping: 15,
 	            sideBySide: true,
-	            defaultDate: moment().subtract(1, 'M').startOf('d').format('YYYY-MM-DD HH:mm')
+	            defaultDate: start.format("YYYY-MM-DD HH:mm")
 	        });
 
 	        $('.input-group.date.end').datetimepicker({
 	            format: "YYYY-MM-DD HH:mm",
-	            stepping: 15,
 	            sideBySide: true,
-	            defaultDate: moment().subtract(1, 'd').endOf('day').subtract(15, 'm').format('YYYY-MM-DD HH:mm')
+	            defaultDate: end.format("YYYY-MM-DD HH:mm")
 	        });
 		},
 
@@ -223,8 +224,13 @@ define([
 		            text: title
 		        },
 		        xAxis: {
-		           	type: 'datetime',
-				    minRange: 3600000
+		           	/*type: 'datetime',
+				    minRange: 3600000,*/
+				    labels: {
+			            formatter: function() {
+			                return moment(this.value).tz(Intl.DateTimeFormat().resolved.timeZone).format("HH:mm");
+			            }
+			        }
 		        },
 		        yAxis: {
 		            
