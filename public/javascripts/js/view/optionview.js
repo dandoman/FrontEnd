@@ -1,13 +1,14 @@
 define([
 	'backbone',
 	'marionette',
-	'highcharts',
+	'highcharts-exporting',
 	'bootstrap-datetimepicker',
 	'moment-timezone',
 	'jstz',
 	'../model/searchParam',
 	'../model/data',
-	'tpl!/javascripts/templates/option.tpl'	
+	'tpl!/javascripts/templates/option.tpl',
+	'highcharts-export-csv'	
 ], function (Backbone, Marionette, highcarts, datatimepicker, moment, jstz, SearchParam, data, option) {
 	OptionItemView = Backbone.Marionette.ItemView.extend({
 		template: option,

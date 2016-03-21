@@ -26,7 +26,8 @@
     "eonasdan-bootstrap-datetimepicker": "~4.17.37",
     "bootstrap": "~3.3.6",
     "moment-timezone": "^0.5.2",
-    "jstz": "*"
+    "jstz": "*",
+    "highcharts-export-csv": "highchart-export-csv#*"
   },
   "devDependencies": {
     "requirejs": "~2.1.22",
