@@ -29,6 +29,17 @@ router.get('/', function (req, res, next) {
     });    
 });
 
+router.put('/', function(req, res, next) {
+
+    var body = req.body;
+
+    var url = "http://ec2-52-88-83-153.us-west-2.compute.amazonaws.com:8080/MetricsService/customer/" + req.body.id;
+
+    request.put({url: url, json: req.body}, function(error, response, body) {
+        res.send(response.body);
+    });
+});
+
 function getURI(req) {
 
     var springURI = "http://ec2-52-88-83-153.us-west-2.compute.amazonaws.com:8080/MetricsService/customer?";

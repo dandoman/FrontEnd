@@ -3,7 +3,7 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <%= contactName %> <b class="caret"></b></a>
         <ul class="dropdown-menu">
             <li>
-                <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                <a id="profile" href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>

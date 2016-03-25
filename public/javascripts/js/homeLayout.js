@@ -11,7 +11,8 @@ define([
 	        	sidebar: '#sidebar',
 	        	dashboard: '#dashboard',
 	        	monitor: '#monitor',
-	        	topbar: '#topbar'
+	        	topbar: '#topbar',
+	        	profile: '#profileView'
 	        }
 	    });
 	});

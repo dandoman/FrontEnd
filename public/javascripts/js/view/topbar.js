@@ -8,6 +8,7 @@ define([
 
 			events: {
 				"click #logout": "logoutClick",
+				"click #profile": "profileClick"
 			},
 
 			initialize: function() {
@@ -25,6 +26,10 @@ define([
 				document.cookie = "customerId=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 
 				window.location.href = document.location.origin;
+		  	},
+
+		  	profileClick: function() {
+		  		vent.trigger("profileClick");	
 		  	}
 
 		});

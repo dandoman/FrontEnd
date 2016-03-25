@@ -13,7 +13,8 @@ define([
 	'view/optionMonitor',
 	'view/monitorListView',
 	'view/topbar',
-], function(Backbone, Marionette, HomeApp, SearchItemView, OptionItemView, SidebarItemView, DashBoardItemView, MonitorItemView, SearchMonitorItemView, monitor, OptionMonitorItemView, MonitorListView, TopBarItemView) {
+	'view/profile'
+], function(Backbone, Marionette, HomeApp, SearchItemView, OptionItemView, SidebarItemView, DashBoardItemView, MonitorItemView, SearchMonitorItemView, monitor, OptionMonitorItemView, MonitorListView, TopBarItemView, ProfileItemView) {
 
 	HomeApp.module('Home', function (Home, HomeApp, Backbone, Marionette, $, _){
 
@@ -43,12 +44,14 @@ define([
 			},
 
 			topbar: function() {
-				var userModel = new Backbone.Model();
-				userModel.url = document.documentURI.split("/")[0] + "/customer";
+				this.userModel = new Backbone.Model();
+				this.userModel.url = document.documentURI.split("/")[0] + "/customer";
 
-				userModel.fetch({
+				var self = this;
+
+				this.userModel.fetch({
 					success: function() {
-						var topBarItemView = new TopBarItemView({model: userModel});
+						var topBarItemView = new TopBarItemView({model: self.userModel});
 						HomeApp.root.showChildView('topbar', topBarItemView);
 					}
 				})
@@ -66,9 +69,7 @@ define([
 			* Destroy any view other than the sidebar and create and render the dashboard
 			*/
 			dashboard: function() {
-				$("#monitorList").empty();
-				$("#dashboard").empty();
-				$("#monitor").empty();
+				this.clearViews();
 
 				this.checkCookie();
 
@@ -96,9 +97,7 @@ define([
 			* Create and render the page for creating monitors
 			*/
 			monitorCreate: function() {
-				$("#monitorList").empty();
-				$("#dashboard").empty();	
-				$("#monitor").empty();
+				this.clearViews();
 
 				this.checkCookie();
 
@@ -126,9 +125,7 @@ define([
 			* Create and render the page for viewing the list of monitors
 			*/
 			monitorView: function() {
-				$("#monitorList").empty();
-				$("#dashboard").empty();
-				$("#monitor").empty();
+				this.clearViews();
 
 				this.checkCookie();
 
@@ -157,6 +154,13 @@ define([
 				HomeApp.root.showChildView('monitorList', monitorCollectionView);
 			},
 
+			profile: function() {
+				this.clearViews();
+
+				var profileItemView = new ProfileItemView({model: this.userModel});
+				HomeApp.root.showChildView('profile', profileItemView);
+			},
+
 			checkCookie: function() {
 				var phrase = document.cookie;
 				var myRegexp = /customerId=(.*)/;
@@ -164,6 +168,13 @@ define([
 				if (!match) {
 					window.location.href = document.location.origin;
 				}
+			},
+
+			clearViews: function() {
+				$("#monitorList").empty();
+				$("#dashboard").empty();
+				$("#monitor").empty();
+				$("#profileView").empty();
 			}
 		}),
 
@@ -185,6 +196,10 @@ define([
 
 		vent.on("showDropdownMonitor", function(param) {
 			HomeApp.controller.optionViewMonitor(param);
+		});
+
+		vent.on("profileClick", function() {
+			HomeApp.controller.profile();
 		});
 	});
 
