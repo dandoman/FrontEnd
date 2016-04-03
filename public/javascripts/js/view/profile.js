@@ -29,10 +29,16 @@ define([
 				 		contactPhoneNumber: $('#phone_number').val(),
 				 		contactEmail: $('#email').val(),
 				 		password: $('#pwd').val(),
-				 		accountType: $('#type').val(),
+				 		//accountType: $('#type').val(),
 				 		billingName: $('#billing_name').val(),
 				 		billingAddress: $('#billing_address').val()
 				 	});
+
+				 	if ($('#type').val()) {
+				 		profile.set({
+				 			accountType: $('#type').val()
+				 		})
+				 	}
 
 				 	profile.url = document.documentURI.split("/")[0] + "/customer/";
 			 		profile.save();

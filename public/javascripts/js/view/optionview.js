@@ -215,6 +215,7 @@ define([
 
 	 	successCallbackPCA: function(data) {
 	 		var dataMatrix = this.setMatrix(data);
+	 		console.log(dataMatrix);
 	 		var averageVector = this.getAverageVector(dataMatrix);
 	 		var diffMatrix = this.getDifferenceMatrix(dataMatrix, averageVector);
 	 		var covMatrix = this.getCovarianceMatrix(dataMatrix);
@@ -256,8 +257,9 @@ define([
 
 			matrix.push(currDay);
 
-			matrix.shift();
-
+			if (matrix.length != 1)
+				matrix.shift();
+			
 			return matrix;
 		},
 

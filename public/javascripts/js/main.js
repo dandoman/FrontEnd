@@ -1,7 +1,3 @@
-// Filename: main.js
-
-// Require.js allows us to configure shortcut alias
-// There usage will become more apparent further along in the tutorial.
 require.config({
   paths: {
     jquery: '../bower_components/jquery/dist/jquery',
@@ -47,15 +43,5 @@ require([
 
   MyApp.on('start', function() {
     console.log("App started");
-
-    //var main = MyApp.module('Main');
-
-    //MyApp.controller = new main.Controller();
-    //MyApp.controller = new MyApp.Main.Controller();
-
-    //MyApp.controller.start();
   });
-
- 	//MyApp.start();
-
 });

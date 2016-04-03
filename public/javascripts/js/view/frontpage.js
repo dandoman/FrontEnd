@@ -14,15 +14,6 @@ define([
 			"click #login_button": "loginClick"
 		},
 
-		onShow: function() {
-			
-
-			/*skrollrMenu.init(s, {
-				animate: true,
-				easing: "sqrt",
-				updateUrl: false,
-			});*/
-		}
 	});
 
 	return FrontPage;

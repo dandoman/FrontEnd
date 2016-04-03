@@ -36,6 +36,7 @@ router.put('/', function(req, res, next) {
     var url = "http://ec2-52-88-83-153.us-west-2.compute.amazonaws.com:8080/MetricsService/customer/" + req.body.id;
 
     request.put({url: url, json: req.body}, function(error, response, body) {
+        console.log(response);
         res.send(response.body);
     });
 });
