@@ -48,4 +48,6 @@
     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 </div>
 
+<label><input type="checkbox" id="pca_check" value="">PCA</label>
+
 <button type="button" class="btn btn-primary pull-right" id="graphSubmit_button">graph!</button>

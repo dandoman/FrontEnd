@@ -8,7 +8,8 @@ define([
 	'../model/searchParam',
 	'../model/data',
 	'tpl!/javascripts/templates/option.tpl',
-	'highcharts-export-csv'	
+	'highcharts-export-csv',
+	'numeric'
 ], function (Backbone, Marionette, highcarts, datatimepicker, moment, jstz, SearchParam, data, option) {
 	OptionItemView = Backbone.Marionette.ItemView.extend({
 		template: option,
@@ -171,7 +172,13 @@ define([
 			}
 		},
 
-		getData: function() {	 	
+		getData: function() {
+
+			if($('#pca_check').prop('checked')) {
+			    console.log("pca");
+			} else {
+			    console.log("normal");
+			}
 
 		 	var self = this;
 
@@ -182,7 +189,15 @@ define([
 		 	if (dataCollection.url) {
 		 		dataCollection.fetch({
 			 		success: function() {
-			 			self.successCallback(dataCollection.toJSON());
+			 			console.log(dataCollection.toJSON());
+
+			 			if($('#pca_check').prop('checked')) {
+						    console.log("pca");
+						    self.successCallbackPCA(dataCollection.toJSON());
+						} else {
+						    console.log("normal");
+						    self.successCallbackNormal(dataCollection.toJSON());
+						}
 			 		}
 			 	});
 		 	}else{
@@ -190,7 +205,7 @@ define([
 		 	}
 		 },
 
-		 successCallback: function(data) {
+		successCallbackNormal: function(data) {
 		 	var startDate = moment($("#date_begin2").val());
 		 	var endDate = moment($("#date_end2").val());
 
@@ -198,7 +213,169 @@ define([
 		 	this.showGraph(serializedData, this.getStatOption());
 		 },
 
-		 serializeSerie: function(data, startDate, endDate) {
+	 	successCallbackPCA: function(data) {
+	 		var dataMatrix = this.setMatrix(data);
+	 		var averageVector = this.getAverageVector(dataMatrix);
+	 		var diffMatrix = this.getDifferenceMatrix(dataMatrix, averageVector);
+	 		var covMatrix = this.getCovarianceMatrix(dataMatrix);
+	 		var eigenDecomposition = this.getEigen(covMatrix);
+	 		var eigenVectors = this.sortEigenVectors(eigenDecomposition);
+	 		var eigenDays = this.getEigenDays(eigenVectors, diffMatrix);
+
+	 		var serializedData = this.serializeDataPCA(eigenDays, data);
+
+	 		console.log(serializedData);
+
+	 		this.showGraphPCA(serializedData);
+	 	},
+
+	 	setMatrix: function(array) {
+		
+			var matrix = [];
+
+			index = 0;
+
+			var currDay = [];
+
+			var prevHourDay = moment(array[0].timeStamp).format("D");
+			var prevHour = moment(array[0].timeStamp).format("H");
+
+			for (var i=0; i<array.length; i++) {
+
+				if (moment(array[i].timeStamp).format("D") == prevHourDay) {
+					currDay.push(array[i].avg);
+				}else{				
+					matrix.push(currDay);
+					currDay = [];
+					currDay.push(array[i].avg);
+				}				
+
+				prevHourDay = moment(array[i].timeStamp).format("D");
+				prevHour = moment(array[i].timeStamp).format("H");
+			}
+
+			matrix.push(currDay);
+
+			matrix.shift();
+
+			return matrix;
+		},
+
+		getAverageVector: function(matrix) {
+			var averageVector = [];
+
+			for (var i=0; i<matrix[0].length; i++) {
+				var sum = 0;
+				var averageLength = 0;
+				for (var j=0; j<matrix.length; j++) {
+					sum += matrix[j][i];
+					averageLength++;				
+				}
+				averageVector[i] = sum / averageLength;
+			}
+
+			return averageVector;		
+		},
+
+		getDifferenceMatrix: function(matrix, averageVector) {
+			var diffMatrix = [];
+
+			for (var i=0; i<matrix.length; i++) {
+				var diffVector = [];
+				for (var j=0; j<matrix[0].length; j++) {
+					diffVector[j] = matrix[i][j] - averageVector[j];
+				}
+
+				diffMatrix[i] = diffVector;
+			}
+
+			return diffMatrix;
+		},
+
+		getCovarianceMatrix: function(matrix) {
+			return numeric.dotMMbig(numeric.transpose(matrix), matrix);
+		},
+
+		getEigen: function(matrix) {
+			return numeric.eig(matrix);
+		},
+
+		sortEigenVectors: function(eigenDecomposition) {
+			var eigenvectorTranspose = numeric.transpose(eigenDecomposition.E.x);
+			var eigenvalues = eigenDecomposition.lambda.x;
+
+			// bubble sort
+			var swapped;
+			do {
+				swapped = false;
+				for (var i=0; i<eigenvalues.length; i++) {
+					if (eigenvalues[i] < eigenvalues[i+1]) {
+						var temp = eigenvalues[i];
+						eigenvalues[i] = eigenvalues[i+1];
+						eigenvalues[i+1] = temp;
+
+						var tempV = eigenvectorTranspose[i];
+						eigenvectorTranspose[i] = eigenvectorTranspose[i+1];
+						eigenvectorTranspose[i+1] = tempV
+
+						swapped = true;
+					}
+				}
+			} while (swapped);
+
+			var biggestVectors = [];
+
+			for (var i=0; i<2; i++) {
+				biggestVectors[i] = eigenvectorTranspose[i];
+			}
+
+			//return numeric.transpose(eigenvectorTranspose);
+			return numeric.transpose(biggestVectors);
+		},
+
+		getEigenDays: function(eigenVectors, diffMatrix) {
+			return numeric.dotMMbig(diffMatrix, eigenVectors);
+		},
+
+		serializeDataPCA: function(eigenDays, dataArray) {
+
+			var serializedData = [];
+			for (var i=0; i<eigenDays.length; i++) {
+
+				var color;
+
+				if (moment(dataArray[i * 24].timeStamp).format("d") === "0") {
+					color = "#000000";
+				}else if (moment(dataArray[i * 24].timeStamp).format("d") === "1") {
+					color = "#0000CC";
+				}else if (moment(dataArray[i * 24].timeStamp).format("d") === "2") {
+					color = "#6600CC";
+				}else if (moment(dataArray[i * 24].timeStamp).format("d") === "3") {
+					color = "#CC0000";
+				}else if (moment(dataArray[i * 24].timeStamp).format("d") === "4") {
+					color = "#009900";
+				}else if (moment(dataArray[i * 24].timeStamp).format("d") === "5") {
+					color = "#FF9900";
+				}else if (moment(dataArray[i * 24].timeStamp).format("d") === "6") {
+					color = "#0099FF";
+				}
+
+				serializedData.push({
+					day: moment(dataArray[i * 24].timeStamp).format("dddd"),
+					date: moment(dataArray[i * 24].timeStamp).format("YYYY-MM-DD"),
+					data: [eigenDays[i]],
+					marker: {
+						symbol: "circle"
+					},
+					color: color
+				});
+			}
+
+			return serializedData;
+		},
+
+
+	 	serializeSerie: function(data, startDate, endDate) {
 
 		 	var serie = [];
 
@@ -226,7 +403,10 @@ define([
 				    labels: {
 			            formatter: function() {
 			                return moment(this.value).tz(Intl.DateTimeFormat().resolved.timeZone).format("YYYY-MM-DD HH:mm");
-			            }
+			            },
+		                style: {
+		                    fontSize:'10px'
+		                }
 			        }
 		        },
 		        yAxis: {
@@ -244,8 +424,69 @@ define([
 		                borderWidth: 0
 		            }
 		        },
+		        legend: {
+		        	enabled: false,
+		        },
 		        series: [{data: serie}]
 		    });
+		 },
+
+		 showGraphPCA: function(serializedData) {
+		 	$('#graph').highcharts({
+	        chart: {
+	            type: 'scatter',
+	            zoomType: 'xy'
+	        },
+	        title: {
+	            text: ''
+	        },
+	        subtitle: {
+	            text: ''
+	        },
+	        xAxis: {
+	            title: {
+	                enabled: true,
+	                text: ''
+	            },
+	            startOnTick: true,
+	            endOnTick: true,
+	            showLastLabel: true
+	        },
+	        yAxis: {
+	            title: {
+	                text: ''
+	            }
+	        },
+	        legend: {
+	        	enabled: false
+	        },
+	        plotOptions: {
+	            scatter: {
+	                marker: {
+	                    radius: 4,
+	                    states: {
+	                        hover: {
+	                            enabled: true,
+	                            lineColor: 'rgb(100,100,100)'
+	                        }
+	                    }
+	                },
+	                states: {
+	                    hover: {
+	                        marker: {
+	                            enabled: false
+	                        }
+	                    }
+	                },
+	            },
+	        },
+	        tooltip: {
+	                    formatter: function() {
+	                    	return moment(this.series.options.date).format("YYYY-MM-DD");
+	                    }                    
+            },
+	        series: serializedData
+	    });
 		 },
 
 		 getURI: function() {

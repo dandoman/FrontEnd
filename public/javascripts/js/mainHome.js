@@ -19,7 +19,8 @@ require.config({
     jstz: '../bower_components/jstz/jstz',
     'bootstrap-datetimepicker': '../bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker',
     bootstrap: '../bower_components/bootstrap/dist/js/bootstrap',
-    tpl: '../bower_components/requirejs-tpl/tpl'
+    tpl: '../bower_components/requirejs-tpl/tpl',
+    numeric: '../bower_components/numericjs/src/numeric'
   },
   shim: {
   	underscore: {

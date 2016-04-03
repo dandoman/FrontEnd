@@ -27,7 +27,8 @@
     "bootstrap": "~3.3.6",
     "moment-timezone": "^0.5.2",
     "jstz": "*",
-    "highcharts-export-csv": "highchart-export-csv#*"
+    "highcharts-export-csv": "highchart-export-csv#*",
+    "numericjs": "^1.2.6"
   },
   "devDependencies": {
     "requirejs": "~2.1.22",
