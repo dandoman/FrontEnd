@@ -8,11 +8,6 @@ define([
 
 		vent = _.extend({}, Backbone.Events);
 
-	/*	Main.Router = Marionette.AppRouter.extend({
-			appRoutes: {
-			}
-		});*/
-
 		Register.Controller = Marionette.Controller.extend({
 			start: function() {
 				console.log("Register Controller start...");
@@ -26,9 +21,6 @@ define([
 
 				var registerView = new RegisterItemView();
 				RegisterApp.root.showChildView('register', registerView);
-
-				/*var nav = new LoginNav();
-				MyApp.root.showChildView('navBar', nav);*/
 			}
 		});
 	});

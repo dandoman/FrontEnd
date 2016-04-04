@@ -13,7 +13,9 @@ define([
 	'view/optionMonitor',
 	'view/monitorListView',
 	'view/topbar',
-	'view/profile'
+	'view/profile',
+	'jquery',
+	'bootstrap'
 ], function(Backbone, Marionette, HomeApp, SearchItemView, OptionItemView, SidebarItemView, DashBoardItemView, MonitorItemView, SearchMonitorItemView, monitor, OptionMonitorItemView, MonitorListView, TopBarItemView, ProfileItemView) {
 
 	HomeApp.module('Home', function (Home, HomeApp, Backbone, Marionette, $, _){

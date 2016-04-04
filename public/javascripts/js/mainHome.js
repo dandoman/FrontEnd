@@ -42,6 +42,9 @@ require.config({
     },
     'highcharts-export-csv': {
       deps: ['highcharts'],
+    },
+    'bootstrap': {
+      deps: ['jquery'],
     }
   }
 
